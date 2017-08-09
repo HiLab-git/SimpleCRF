@@ -1,0 +1,2713 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		3955CDF4C60743EF8BB44294 /* ALL_BUILD */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = FAFCAA37122F42E58EB9CF5A /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */;
+			buildPhases = (
+				DE03AC62F5174A86961F3F69 /* CMake Rules */,
+			);
+			dependencies = (
+				AAD5A843452641D08D72F35B /* PBXTargetDependency */,
+				328EA9C8BB16424FAD890B60 /* PBXTargetDependency */,
+				BF8B11CD57424E6C88066C6D /* PBXTargetDependency */,
+				139A9E8CBA274A3F975C5FA0 /* PBXTargetDependency */,
+				BE976C619E15466C8C143C66 /* PBXTargetDependency */,
+				CC8E4047393643CE931ED5A1 /* PBXTargetDependency */,
+				9B82A019843741F897E7B590 /* PBXTargetDependency */,
+				DA6175FAAF354F2BA502B446 /* PBXTargetDependency */,
+				84FDD970C72D40968FCB2338 /* PBXTargetDependency */,
+			);
+			name = ALL_BUILD;
+			productName = ALL_BUILD;
+		};
+		D38029908E88433AB12A12AE /* ZERO_CHECK */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = BB0F32EAF3984D218D8E7508 /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */;
+			buildPhases = (
+				AA982C66B36C4B63AAF02A5F /* CMake Rules */,
+			);
+			dependencies = (
+			);
+			name = ZERO_CHECK;
+			productName = ZERO_CHECK;
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		14B93BBBA76B4086A13A3BF0 /* test_pairwise.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 75412ACD85834A70A51C0ECA /* test_pairwise.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		211E1A8B6D734FE09D86CCB3 /* common.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 90E306D6A466410E899E798C /* common.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		33C9E8DB6A4D4150A71984B9 /* densecrf.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 339FCE5A8AEF47598753A963 /* densecrf.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		68AEA9CB06E24EABAFF16F4A /* ppm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5A72D4A28A144869B6BF5459 /* ppm.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		6D0BFCF91DB130F6001119EE /* common.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 90E306D6A466410E899E798C /* common.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		6D0BFCFB1DB130F6001119EE /* ppm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C87A755C10D48EB91D2DFA0 /* ppm.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		6D0BFD061DB1324D001119EE /* my_dense_inference.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6D0BFD051DB1324D001119EE /* my_dense_inference.cpp */; };
+		6D0BFD081DB14089001119EE /* lodepng.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6D0BFD071DB14089001119EE /* lodepng.cpp */; };
+		708CE7EB2B794B03BC942FC8 /* util.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E675F72014E748769C014F58 /* util.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		7FC8F24AC07242A48CA64B3F /* optimization.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B0D94A544D614DEC8D81025A /* optimization.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		839A84846EA442E49582C45B /* objective.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1FCE69CB1E3B42D1A8DA2004 /* objective.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		853CACFA97B3469584F97E28 /* pairwise.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5FA555D7E3C74876BC722F43 /* pairwise.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		8914664321834D8C98591740 /* common.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CA6FF737F7854EF5956EF692 /* common.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		8FE693A9854A44FABD8965AF /* test_permutohedral.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0B1379DB5ADD4F069E5D4A26 /* test_permutohedral.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		984BC4D64E074E8893D837C8 /* unary.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 73071EE03C5E4E9C97843D69 /* unary.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		A2F631D3391540BA9D1EB211 /* dense_learning.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BB1D272124CD47D5A974B1D0 /* dense_learning.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		A6AE543749FD49E69F3EDA1D /* dense_inference.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 48144C4ECDBF4263BEB41BEC /* dense_inference.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		C022CEECA9AE43368CE9B5C4 /* lbfgs.c in Sources */ = {isa = PBXBuildFile; fileRef = ED329FBE4BF14021838CD6E9 /* lbfgs.c */; settings = {COMPILER_FLAGS = ""; }; };
+		C3B52C64C1EE40BCA6770005 /* permutohedral.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7CF2FCAC823E4EC3B9D716A3 /* permutohedral.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		D5E3FF5852D64AD498232E7F /* ppm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C87A755C10D48EB91D2DFA0 /* ppm.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		E6A7FD4AF9FD4118B11D67A6 /* test_optimization.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6D78978A6F4B4A0FAFD93FAA /* test_optimization.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		F7C0348D9E4F43A2A0765A3B /* labelcompatibility.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AC4972A762B549089A6B7296 /* labelcompatibility.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0AF61AF4B74D4938A37F0FF3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E15C752C86B3426BBCC39F8C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A7344A18EEB0439C92643BD5;
+			remoteInfo = optimization;
+		};
+		2148BDCC262D4FA7ADF364EE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E15C752C86B3426BBCC39F8C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D38029908E88433AB12A12AE;
+			remoteInfo = ZERO_CHECK;
+		};
+		2F78D96F977A4A9C845339B9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E15C752C86B3426BBCC39F8C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D053CF39AD364C37B03A33ED;
+			remoteInfo = lbfgs;
+		};
+		303DDCB6466E42E785B801EC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E15C752C86B3426BBCC39F8C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D38029908E88433AB12A12AE;
+			remoteInfo = ZERO_CHECK;
+		};
+		34F51DFBC20E4805871E0B5A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E15C752C86B3426BBCC39F8C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 099529265DE646D78ECE3B13;
+			remoteInfo = test_pairwise;
+		};
+		36CB9464C9C9428880B8919A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E15C752C86B3426BBCC39F8C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A7344A18EEB0439C92643BD5;
+			remoteInfo = optimization;
+		};
+		38370DC56B434D688A08D2C1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E15C752C86B3426BBCC39F8C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D38029908E88433AB12A12AE;
+			remoteInfo = ZERO_CHECK;
+		};
+		3C70414FA5F344AB938C8833 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E15C752C86B3426BBCC39F8C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A7344A18EEB0439C92643BD5;
+			remoteInfo = optimization;
+		};
+		3EC08288E2BF4937BB84D4FD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E15C752C86B3426BBCC39F8C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DC8F4EC1AF33432A9E19FF8B;
+			remoteInfo = densecrf;
+		};
+		42F04A5D59684BD79A9A1512 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E15C752C86B3426BBCC39F8C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6386A5EF889F48F5A075043E;
+			remoteInfo = test_optimization;
+		};
+		4E0A15C3B4EF4653B00D9299 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E15C752C86B3426BBCC39F8C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DC8F4EC1AF33432A9E19FF8B;
+			remoteInfo = densecrf;
+		};
+		5716758C43BF4B4CAB2B03E2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E15C752C86B3426BBCC39F8C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DC8F4EC1AF33432A9E19FF8B;
+			remoteInfo = densecrf;
+		};
+		6D0BFCF51DB130F6001119EE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E15C752C86B3426BBCC39F8C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D38029908E88433AB12A12AE;
+			remoteInfo = ZERO_CHECK;
+		};
+		6D0BFCF71DB130F6001119EE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E15C752C86B3426BBCC39F8C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DC8F4EC1AF33432A9E19FF8B;
+			remoteInfo = densecrf;
+		};
+		711E7BC1293E4140B70E8044 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E15C752C86B3426BBCC39F8C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A7344A18EEB0439C92643BD5;
+			remoteInfo = optimization;
+		};
+		75F25E9648EB42478386FD0F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E15C752C86B3426BBCC39F8C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D38029908E88433AB12A12AE;
+			remoteInfo = ZERO_CHECK;
+		};
+		7BE92B63B3C64DA0BD4CF60D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E15C752C86B3426BBCC39F8C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D38029908E88433AB12A12AE;
+			remoteInfo = ZERO_CHECK;
+		};
+		822C26EF79E145E988D03C42 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E15C752C86B3426BBCC39F8C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D053CF39AD364C37B03A33ED;
+			remoteInfo = lbfgs;
+		};
+		84108E81B9F644CB889C4194 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E15C752C86B3426BBCC39F8C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D053CF39AD364C37B03A33ED;
+			remoteInfo = lbfgs;
+		};
+		951B0D92E8B24F6D9B10C73C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E15C752C86B3426BBCC39F8C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E5D36CE4345C4155803D6849;
+			remoteInfo = test_permutohedral;
+		};
+		95F049B002114557B62A94ED /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E15C752C86B3426BBCC39F8C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D053CF39AD364C37B03A33ED;
+			remoteInfo = lbfgs;
+		};
+		9B0A28F962F44454976E7E23 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E15C752C86B3426BBCC39F8C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D38029908E88433AB12A12AE;
+			remoteInfo = ZERO_CHECK;
+		};
+		A63E8FAC29804291A02285B7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E15C752C86B3426BBCC39F8C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 147FADE4A38D4F219DFFB36D;
+			remoteInfo = dense_learning;
+		};
+		AB4A8FF0F3BD4044AFFC977D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E15C752C86B3426BBCC39F8C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D053CF39AD364C37B03A33ED;
+			remoteInfo = lbfgs;
+		};
+		AD001AF5AA1A432B923F7569 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E15C752C86B3426BBCC39F8C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D38029908E88433AB12A12AE;
+			remoteInfo = ZERO_CHECK;
+		};
+		B13254CDB2574890BEC0BAC0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E15C752C86B3426BBCC39F8C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DC8F4EC1AF33432A9E19FF8B;
+			remoteInfo = densecrf;
+		};
+		B77278C6FCAA400DAA835A53 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E15C752C86B3426BBCC39F8C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D38029908E88433AB12A12AE;
+			remoteInfo = ZERO_CHECK;
+		};
+		BFBBE2E40AE546DA99A855D4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E15C752C86B3426BBCC39F8C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D38029908E88433AB12A12AE;
+			remoteInfo = ZERO_CHECK;
+		};
+		C597ED252F5B483A8F206D2A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E15C752C86B3426BBCC39F8C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A7344A18EEB0439C92643BD5;
+			remoteInfo = optimization;
+		};
+		C6B607189152471EB2BBE529 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E15C752C86B3426BBCC39F8C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D053CF39AD364C37B03A33ED;
+			remoteInfo = lbfgs;
+		};
+		CC3FF169C0744FED8916367A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E15C752C86B3426BBCC39F8C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DC8F4EC1AF33432A9E19FF8B;
+			remoteInfo = densecrf;
+		};
+		D69A867AE33A47758F8EA27D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E15C752C86B3426BBCC39F8C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DCD0B74E43F44DA1AFBBE55F;
+			remoteInfo = dense_inference;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0B1379DB5ADD4F069E5D4A26 /* test_permutohedral.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = test_permutohedral.cpp; path = examples/test_permutohedral.cpp; sourceTree = SOURCE_ROOT; };
+		0BFE7F1B072E4F43AE7EF194 /* CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		0DD0E5251A1E402BA5E21270 /* dense_learning */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; path = dense_learning; sourceTree = BUILT_PRODUCTS_DIR; };
+		13FC89F2DF284CE2825B4DC5 /* CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; lastKnownFileType = text; name = CMakeLists.txt; path = examples/CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		158A8F5429624CA984528F97 /* liboptimization.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = liboptimization.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		1A2B24861ACC4FF086738E9C /* liblbfgs.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = liblbfgs.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		1FCE69CB1E3B42D1A8DA2004 /* objective.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = objective.cpp; path = src/objective.cpp; sourceTree = SOURCE_ROOT; };
+		2BD51349B6B949919EAF6D1F /* CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		2F4877DDFEE34FB9B5D3877A /* CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; lastKnownFileType = text; name = CMakeLists.txt; path = examples/CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		339FCE5A8AEF47598753A963 /* densecrf.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = densecrf.cpp; path = src/densecrf.cpp; sourceTree = SOURCE_ROOT; };
+		48144C4ECDBF4263BEB41BEC /* dense_inference.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = dense_inference.cpp; path = examples/dense_inference.cpp; sourceTree = SOURCE_ROOT; };
+		5A72D4A28A144869B6BF5459 /* ppm.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = ppm.cpp; path = examples/ppm.cpp; sourceTree = SOURCE_ROOT; };
+		5FA555D7E3C74876BC722F43 /* pairwise.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = pairwise.cpp; path = src/pairwise.cpp; sourceTree = SOURCE_ROOT; };
+		67A2B38170EF455AA020B622 /* test_permutohedral */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; path = test_permutohedral; sourceTree = BUILT_PRODUCTS_DIR; };
+		6D0BFD011DB130F6001119EE /* my_dense_inference */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = my_dense_inference; sourceTree = BUILT_PRODUCTS_DIR; };
+		6D0BFD051DB1324D001119EE /* my_dense_inference.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = my_dense_inference.cpp; path = examples/my_dense_inference.cpp; sourceTree = "<group>"; };
+		6D0BFD071DB14089001119EE /* lodepng.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = lodepng.cpp; path = examples/lodepng.cpp; sourceTree = "<group>"; };
+		6D78978A6F4B4A0FAFD93FAA /* test_optimization.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = test_optimization.cpp; path = examples/test_optimization.cpp; sourceTree = SOURCE_ROOT; };
+		73071EE03C5E4E9C97843D69 /* unary.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = unary.cpp; path = src/unary.cpp; sourceTree = SOURCE_ROOT; };
+		74920E3B116E44F48EBAD9FB /* CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; lastKnownFileType = text; name = CMakeLists.txt; path = external/CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		75412ACD85834A70A51C0ECA /* test_pairwise.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = test_pairwise.cpp; path = examples/test_pairwise.cpp; sourceTree = SOURCE_ROOT; };
+		7CF2FCAC823E4EC3B9D716A3 /* permutohedral.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = permutohedral.cpp; path = src/permutohedral.cpp; sourceTree = SOURCE_ROOT; };
+		8E8197ED87EB46FEADC07D50 /* CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; lastKnownFileType = text; name = CMakeLists.txt; path = examples/CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		90E306D6A466410E899E798C /* common.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = common.cpp; path = examples/common.cpp; sourceTree = SOURCE_ROOT; };
+		9C87A755C10D48EB91D2DFA0 /* ppm.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = ppm.cpp; path = examples/ppm.cpp; sourceTree = SOURCE_ROOT; };
+		A50DBCAFA5EC4556BEE7687C /* CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; lastKnownFileType = text; name = CMakeLists.txt; path = src/CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		A6334ACE019D4CA6B624814E /* CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; lastKnownFileType = text; name = CMakeLists.txt; path = src/CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		AC4972A762B549089A6B7296 /* labelcompatibility.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = labelcompatibility.cpp; path = src/labelcompatibility.cpp; sourceTree = SOURCE_ROOT; };
+		AE5DF8927C00469DA1D69A60 /* CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; lastKnownFileType = text; name = CMakeLists.txt; path = examples/CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		B0D94A544D614DEC8D81025A /* optimization.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = optimization.cpp; path = src/optimization.cpp; sourceTree = SOURCE_ROOT; };
+		BB1D272124CD47D5A974B1D0 /* dense_learning.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = dense_learning.cpp; path = examples/dense_learning.cpp; sourceTree = SOURCE_ROOT; };
+		C33C1C54977B49059582F342 /* test_pairwise */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; path = test_pairwise; sourceTree = BUILT_PRODUCTS_DIR; };
+		CA6FF737F7854EF5956EF692 /* common.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = common.cpp; path = examples/common.cpp; sourceTree = SOURCE_ROOT; };
+		DC8376E869784BBF9F3938E4 /* CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; lastKnownFileType = text; name = CMakeLists.txt; path = examples/CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		DD14E6CCE98041AF91329E7A /* dense_inference */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; path = dense_inference; sourceTree = BUILT_PRODUCTS_DIR; };
+		E28B63A7ACBA428BA3E435F7 /* test_optimization */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; path = test_optimization; sourceTree = BUILT_PRODUCTS_DIR; };
+		E675F72014E748769C014F58 /* util.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = util.cpp; path = src/util.cpp; sourceTree = SOURCE_ROOT; };
+		ED329FBE4BF14021838CD6E9 /* lbfgs.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = lbfgs.c; path = external/liblbfgs/lib/lbfgs.c; sourceTree = SOURCE_ROOT; };
+		FA014FA4179B4A1BBDF67E1B /* libdensecrf.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libdensecrf.a; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		2306481F71F041CBAD9374A9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FA014FA4179B4A1BBDF67E1B /* libdensecrf.a */,
+				158A8F5429624CA984528F97 /* liboptimization.a */,
+				DD14E6CCE98041AF91329E7A /* dense_inference */,
+				0DD0E5251A1E402BA5E21270 /* dense_learning */,
+				E28B63A7ACBA428BA3E435F7 /* test_optimization */,
+				C33C1C54977B49059582F342 /* test_pairwise */,
+				67A2B38170EF455AA020B622 /* test_permutohedral */,
+				1A2B24861ACC4FF086738E9C /* liblbfgs.a */,
+				6D0BFD011DB130F6001119EE /* my_dense_inference */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		31DC75AC420B484C9536973F /* optimization */ = {
+			isa = PBXGroup;
+			children = (
+				847979D0E13B4F11931B41ED /* Source Files */,
+				A6334ACE019D4CA6B624814E /* CMakeLists.txt */,
+			);
+			name = optimization;
+			sourceTree = "<group>";
+		};
+		329FB3AFC9194E86BA6E0DFE /* lbfgs */ = {
+			isa = PBXGroup;
+			children = (
+				D39C787E96B94B86AA99F378 /* Source Files */,
+				74920E3B116E44F48EBAD9FB /* CMakeLists.txt */,
+			);
+			name = lbfgs;
+			sourceTree = "<group>";
+		};
+		3963177A6B0D40479A4120A5 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		60C4156766424964A616FBD9 /* test_pairwise */ = {
+			isa = PBXGroup;
+			children = (
+				9DB630E4BC944C4AA188B42B /* Source Files */,
+				AE5DF8927C00469DA1D69A60 /* CMakeLists.txt */,
+			);
+			name = test_pairwise;
+			sourceTree = "<group>";
+		};
+		62529254D4C44C1A80B1D73F /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				897DE7B4C38A4A5BB3C6328D /* ALL_BUILD */,
+				871E6E4BC0454815A56B800E /* ZERO_CHECK */,
+				31DC75AC420B484C9536973F /* optimization */,
+				AA1EF79AC87848709302A6CE /* densecrf */,
+				60C4156766424964A616FBD9 /* test_pairwise */,
+				E9FA2FEA45E447E39EAF0599 /* dense_inference */,
+				F0584F65607C47B5B9EA9004 /* test_optimization */,
+				F1A57165F70E482288A798B3 /* test_permutohedral */,
+				8D8E8C966A1146AAA138B0D9 /* dense_learning */,
+				329FB3AFC9194E86BA6E0DFE /* lbfgs */,
+			);
+			name = Sources;
+			sourceTree = "<group>";
+		};
+		73B68824BF644EFAAD879C95 /* Source Files */ = {
+			isa = PBXGroup;
+			children = (
+				6D78978A6F4B4A0FAFD93FAA /* test_optimization.cpp */,
+			);
+			name = "Source Files";
+			sourceTree = "<group>";
+		};
+		847979D0E13B4F11931B41ED /* Source Files */ = {
+			isa = PBXGroup;
+			children = (
+				B0D94A544D614DEC8D81025A /* optimization.cpp */,
+			);
+			name = "Source Files";
+			sourceTree = "<group>";
+		};
+		871E6E4BC0454815A56B800E /* ZERO_CHECK */ = {
+			isa = PBXGroup;
+			children = (
+				B84B546FFA3044DDB4BC7AE8 /* CMake Rules */,
+				0BFE7F1B072E4F43AE7EF194 /* CMakeLists.txt */,
+			);
+			name = ZERO_CHECK;
+			sourceTree = "<group>";
+		};
+		897DE7B4C38A4A5BB3C6328D /* ALL_BUILD */ = {
+			isa = PBXGroup;
+			children = (
+				B09B8CBDB77843CC806D8980 /* CMake Rules */,
+				2BD51349B6B949919EAF6D1F /* CMakeLists.txt */,
+			);
+			name = ALL_BUILD;
+			sourceTree = "<group>";
+		};
+		8996BD1CB39546B9B1195B41 /* Source Files */ = {
+			isa = PBXGroup;
+			children = (
+				0B1379DB5ADD4F069E5D4A26 /* test_permutohedral.cpp */,
+			);
+			name = "Source Files";
+			sourceTree = "<group>";
+		};
+		8D8E8C966A1146AAA138B0D9 /* dense_learning */ = {
+			isa = PBXGroup;
+			children = (
+				D2ABECCAC03440F69EFBD580 /* Source Files */,
+				2F4877DDFEE34FB9B5D3877A /* CMakeLists.txt */,
+			);
+			name = dense_learning;
+			sourceTree = "<group>";
+		};
+		9DB630E4BC944C4AA188B42B /* Source Files */ = {
+			isa = PBXGroup;
+			children = (
+				75412ACD85834A70A51C0ECA /* test_pairwise.cpp */,
+			);
+			name = "Source Files";
+			sourceTree = "<group>";
+		};
+		A2338FEC2FCD46DF9D911808 /* Source Files */ = {
+			isa = PBXGroup;
+			children = (
+				339FCE5A8AEF47598753A963 /* densecrf.cpp */,
+				AC4972A762B549089A6B7296 /* labelcompatibility.cpp */,
+				1FCE69CB1E3B42D1A8DA2004 /* objective.cpp */,
+				5FA555D7E3C74876BC722F43 /* pairwise.cpp */,
+				7CF2FCAC823E4EC3B9D716A3 /* permutohedral.cpp */,
+				73071EE03C5E4E9C97843D69 /* unary.cpp */,
+				E675F72014E748769C014F58 /* util.cpp */,
+			);
+			name = "Source Files";
+			sourceTree = "<group>";
+		};
+		AA1EF79AC87848709302A6CE /* densecrf */ = {
+			isa = PBXGroup;
+			children = (
+				A2338FEC2FCD46DF9D911808 /* Source Files */,
+				A50DBCAFA5EC4556BEE7687C /* CMakeLists.txt */,
+			);
+			name = densecrf;
+			sourceTree = "<group>";
+		};
+		B09B8CBDB77843CC806D8980 /* CMake Rules */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "CMake Rules";
+			sourceTree = "<group>";
+		};
+		B84B546FFA3044DDB4BC7AE8 /* CMake Rules */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "CMake Rules";
+			sourceTree = "<group>";
+		};
+		D2ABECCAC03440F69EFBD580 /* Source Files */ = {
+			isa = PBXGroup;
+			children = (
+				CA6FF737F7854EF5956EF692 /* common.cpp */,
+				BB1D272124CD47D5A974B1D0 /* dense_learning.cpp */,
+				5A72D4A28A144869B6BF5459 /* ppm.cpp */,
+			);
+			name = "Source Files";
+			sourceTree = "<group>";
+		};
+		D39C787E96B94B86AA99F378 /* Source Files */ = {
+			isa = PBXGroup;
+			children = (
+				ED329FBE4BF14021838CD6E9 /* lbfgs.c */,
+			);
+			name = "Source Files";
+			sourceTree = "<group>";
+		};
+		D3F5C5341BB94ED1B34B6FE6 /* Source Files */ = {
+			isa = PBXGroup;
+			children = (
+				6D0BFD071DB14089001119EE /* lodepng.cpp */,
+				6D0BFD051DB1324D001119EE /* my_dense_inference.cpp */,
+				48144C4ECDBF4263BEB41BEC /* dense_inference.cpp */,
+				90E306D6A466410E899E798C /* common.cpp */,
+				9C87A755C10D48EB91D2DFA0 /* ppm.cpp */,
+			);
+			name = "Source Files";
+			sourceTree = "<group>";
+		};
+		DAE6C3BDA93A482BB07D07DC = {
+			isa = PBXGroup;
+			children = (
+				62529254D4C44C1A80B1D73F /* Sources */,
+				3963177A6B0D40479A4120A5 /* Resources */,
+				2306481F71F041CBAD9374A9 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E9FA2FEA45E447E39EAF0599 /* dense_inference */ = {
+			isa = PBXGroup;
+			children = (
+				D3F5C5341BB94ED1B34B6FE6 /* Source Files */,
+				13FC89F2DF284CE2825B4DC5 /* CMakeLists.txt */,
+			);
+			name = dense_inference;
+			sourceTree = "<group>";
+		};
+		F0584F65607C47B5B9EA9004 /* test_optimization */ = {
+			isa = PBXGroup;
+			children = (
+				73B68824BF644EFAAD879C95 /* Source Files */,
+				8E8197ED87EB46FEADC07D50 /* CMakeLists.txt */,
+			);
+			name = test_optimization;
+			sourceTree = "<group>";
+		};
+		F1A57165F70E482288A798B3 /* test_permutohedral */ = {
+			isa = PBXGroup;
+			children = (
+				8996BD1CB39546B9B1195B41 /* Source Files */,
+				DC8376E869784BBF9F3938E4 /* CMakeLists.txt */,
+			);
+			name = test_permutohedral;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		099529265DE646D78ECE3B13 /* test_pairwise */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1A08ECA79547492DA8FF18DA /* Build configuration list for PBXNativeTarget "test_pairwise" */;
+			buildPhases = (
+				6D1B9EC3F9284848A9899FBB /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				468403B735B14ECA8BDF72C2 /* PBXTargetDependency */,
+				37BB361AED9A4B11B01FBED8 /* PBXTargetDependency */,
+				B2BBA02667244337BE1D426B /* PBXTargetDependency */,
+				6544CE62B57D4E0D8607A0E8 /* PBXTargetDependency */,
+			);
+			name = test_pairwise;
+			productName = test_pairwise;
+			productReference = C33C1C54977B49059582F342 /* test_pairwise */;
+			productType = "com.apple.product-type.tool";
+		};
+		147FADE4A38D4F219DFFB36D /* dense_learning */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6057A262DFDE4CA5A1DAC889 /* Build configuration list for PBXNativeTarget "dense_learning" */;
+			buildPhases = (
+				A56CF773CE6F4F1A9E8C57B8 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				10937CFD77E84F69BEBCD865 /* PBXTargetDependency */,
+				4A348E2BBA644AB19D10B1A4 /* PBXTargetDependency */,
+				F091A8B2927E4B43815B5CED /* PBXTargetDependency */,
+				8874E6C95C334C84908674D4 /* PBXTargetDependency */,
+			);
+			name = dense_learning;
+			productName = dense_learning;
+			productReference = 0DD0E5251A1E402BA5E21270 /* dense_learning */;
+			productType = "com.apple.product-type.tool";
+		};
+		6386A5EF889F48F5A075043E /* test_optimization */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A1C9F96CFC91440B9FEBA272 /* Build configuration list for PBXNativeTarget "test_optimization" */;
+			buildPhases = (
+				F0BF244BABBF4A6B84B34F1B /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				10DEC1E5C2FE4E57A0D33F35 /* PBXTargetDependency */,
+				CC72F0067839493FBB2EDD76 /* PBXTargetDependency */,
+				12D4F21EE0724AFAB302382C /* PBXTargetDependency */,
+			);
+			name = test_optimization;
+			productName = test_optimization;
+			productReference = E28B63A7ACBA428BA3E435F7 /* test_optimization */;
+			productType = "com.apple.product-type.tool";
+		};
+		6D0BFCF31DB130F6001119EE /* my_dense_inference */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6D0BFCFC1DB130F6001119EE /* Build configuration list for PBXNativeTarget "my_dense_inference" */;
+			buildPhases = (
+				6D0BFCF81DB130F6001119EE /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6D0BFCF41DB130F6001119EE /* PBXTargetDependency */,
+				6D0BFCF61DB130F6001119EE /* PBXTargetDependency */,
+			);
+			name = my_dense_inference;
+			productName = dense_inference;
+			productReference = 6D0BFD011DB130F6001119EE /* my_dense_inference */;
+			productType = "com.apple.product-type.tool";
+		};
+		A7344A18EEB0439C92643BD5 /* optimization */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7A5390A9F50749D592DBDCAB /* Build configuration list for PBXNativeTarget "optimization" */;
+			buildPhases = (
+				F2821E33495A4FA0BA3CB526 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				59646A46041E4E48B0089103 /* PBXTargetDependency */,
+				6C3FD018CF0941B89FB11F75 /* PBXTargetDependency */,
+			);
+			name = optimization;
+			productName = optimization;
+			productReference = 158A8F5429624CA984528F97 /* liboptimization.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		D053CF39AD364C37B03A33ED /* lbfgs */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F1F1AFBA50FB4C6AAA955A27 /* Build configuration list for PBXNativeTarget "lbfgs" */;
+			buildPhases = (
+				AFBC2E51227549B6B16EE936 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7347BD4EACDA4E06A0CC6D04 /* PBXTargetDependency */,
+			);
+			name = lbfgs;
+			productName = lbfgs;
+			productReference = 1A2B24861ACC4FF086738E9C /* liblbfgs.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		DC8F4EC1AF33432A9E19FF8B /* densecrf */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DAD045FFEBC84C61B53FF109 /* Build configuration list for PBXNativeTarget "densecrf" */;
+			buildPhases = (
+				D7D9E60013A242E1B00E3798 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				04F718928F454270B6926D51 /* PBXTargetDependency */,
+			);
+			name = densecrf;
+			productName = densecrf;
+			productReference = FA014FA4179B4A1BBDF67E1B /* libdensecrf.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		DCD0B74E43F44DA1AFBBE55F /* dense_inference */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B5D6F365FD7647969496F2A7 /* Build configuration list for PBXNativeTarget "dense_inference" */;
+			buildPhases = (
+				F4F57EBE99C64E14A35A63C6 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EB95EAEC55C045E0AC5641F5 /* PBXTargetDependency */,
+				4827B9F4E1B348E0BE196464 /* PBXTargetDependency */,
+			);
+			name = dense_inference;
+			productName = dense_inference;
+			productReference = DD14E6CCE98041AF91329E7A /* dense_inference */;
+			productType = "com.apple.product-type.tool";
+		};
+		E5D36CE4345C4155803D6849 /* test_permutohedral */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0CD6358BCEB749B48FCEE686 /* Build configuration list for PBXNativeTarget "test_permutohedral" */;
+			buildPhases = (
+				5F4F97C77E9F499297F58109 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A6A6F9BF9D034A299048BEA7 /* PBXTargetDependency */,
+				A68E45EB50934BD5A765DB92 /* PBXTargetDependency */,
+				84D9EBAC4CD849EB997398B5 /* PBXTargetDependency */,
+				6A8D79642CF8435BA9ED1BD9 /* PBXTargetDependency */,
+			);
+			name = test_permutohedral;
+			productName = test_permutohedral;
+			productReference = 67A2B38170EF455AA020B622 /* test_permutohedral */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E15C752C86B3426BBCC39F8C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+			};
+			buildConfigurationList = 0A9582E2FD4F4984AB2A3BC7 /* Build configuration list for PBXProject "densecrf" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = DAE6C3BDA93A482BB07D07DC;
+			projectDirPath = ..;
+			projectRoot = "";
+			targets = (
+				3955CDF4C60743EF8BB44294 /* ALL_BUILD */,
+				D38029908E88433AB12A12AE /* ZERO_CHECK */,
+				DC8F4EC1AF33432A9E19FF8B /* densecrf */,
+				A7344A18EEB0439C92643BD5 /* optimization */,
+				DCD0B74E43F44DA1AFBBE55F /* dense_inference */,
+				147FADE4A38D4F219DFFB36D /* dense_learning */,
+				6386A5EF889F48F5A075043E /* test_optimization */,
+				099529265DE646D78ECE3B13 /* test_pairwise */,
+				E5D36CE4345C4155803D6849 /* test_permutohedral */,
+				D053CF39AD364C37B03A33ED /* lbfgs */,
+				6D0BFCF31DB130F6001119EE /* my_dense_inference */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		AA982C66B36C4B63AAF02A5F /* CMake Rules */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "CMake Rules";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "make -C /Users/guotaiwang/Documents/workspace/densecrf/build -f /Users/guotaiwang/Documents/workspace/densecrf/build/CMakeScripts/ZERO_CHECK_cmakeRulesBuildPhase.make$CONFIGURATION all";
+			showEnvVarsInLog = 0;
+		};
+		DE03AC62F5174A86961F3F69 /* CMake Rules */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "CMake Rules";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "make -C /Users/guotaiwang/Documents/workspace/densecrf/build -f /Users/guotaiwang/Documents/workspace/densecrf/build/CMakeScripts/ALL_BUILD_cmakeRulesBuildPhase.make$CONFIGURATION all";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5F4F97C77E9F499297F58109 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8FE693A9854A44FABD8965AF /* test_permutohedral.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6D0BFCF81DB130F6001119EE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6D0BFD061DB1324D001119EE /* my_dense_inference.cpp in Sources */,
+				6D0BFD081DB14089001119EE /* lodepng.cpp in Sources */,
+				6D0BFCF91DB130F6001119EE /* common.cpp in Sources */,
+				6D0BFCFB1DB130F6001119EE /* ppm.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6D1B9EC3F9284848A9899FBB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				14B93BBBA76B4086A13A3BF0 /* test_pairwise.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A56CF773CE6F4F1A9E8C57B8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8914664321834D8C98591740 /* common.cpp in Sources */,
+				A2F631D3391540BA9D1EB211 /* dense_learning.cpp in Sources */,
+				68AEA9CB06E24EABAFF16F4A /* ppm.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AFBC2E51227549B6B16EE936 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C022CEECA9AE43368CE9B5C4 /* lbfgs.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D7D9E60013A242E1B00E3798 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				33C9E8DB6A4D4150A71984B9 /* densecrf.cpp in Sources */,
+				F7C0348D9E4F43A2A0765A3B /* labelcompatibility.cpp in Sources */,
+				839A84846EA442E49582C45B /* objective.cpp in Sources */,
+				853CACFA97B3469584F97E28 /* pairwise.cpp in Sources */,
+				C3B52C64C1EE40BCA6770005 /* permutohedral.cpp in Sources */,
+				984BC4D64E074E8893D837C8 /* unary.cpp in Sources */,
+				708CE7EB2B794B03BC942FC8 /* util.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F0BF244BABBF4A6B84B34F1B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E6A7FD4AF9FD4118B11D67A6 /* test_optimization.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F2821E33495A4FA0BA3CB526 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7FC8F24AC07242A48CA64B3F /* optimization.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F4F57EBE99C64E14A35A63C6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				211E1A8B6D734FE09D86CCB3 /* common.cpp in Sources */,
+				A6AE543749FD49E69F3EDA1D /* dense_inference.cpp in Sources */,
+				D5E3FF5852D64AD498232E7F /* ppm.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		04F718928F454270B6926D51 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D38029908E88433AB12A12AE /* ZERO_CHECK */;
+			targetProxy = BFBBE2E40AE546DA99A855D4 /* PBXContainerItemProxy */;
+		};
+		10937CFD77E84F69BEBCD865 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D38029908E88433AB12A12AE /* ZERO_CHECK */;
+			targetProxy = B77278C6FCAA400DAA835A53 /* PBXContainerItemProxy */;
+		};
+		10DEC1E5C2FE4E57A0D33F35 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D38029908E88433AB12A12AE /* ZERO_CHECK */;
+			targetProxy = 38370DC56B434D688A08D2C1 /* PBXContainerItemProxy */;
+		};
+		12D4F21EE0724AFAB302382C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A7344A18EEB0439C92643BD5 /* optimization */;
+			targetProxy = 711E7BC1293E4140B70E8044 /* PBXContainerItemProxy */;
+		};
+		139A9E8CBA274A3F975C5FA0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DCD0B74E43F44DA1AFBBE55F /* dense_inference */;
+			targetProxy = D69A867AE33A47758F8EA27D /* PBXContainerItemProxy */;
+		};
+		328EA9C8BB16424FAD890B60 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 147FADE4A38D4F219DFFB36D /* dense_learning */;
+			targetProxy = A63E8FAC29804291A02285B7 /* PBXContainerItemProxy */;
+		};
+		37BB361AED9A4B11B01FBED8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D053CF39AD364C37B03A33ED /* lbfgs */;
+			targetProxy = 95F049B002114557B62A94ED /* PBXContainerItemProxy */;
+		};
+		468403B735B14ECA8BDF72C2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D38029908E88433AB12A12AE /* ZERO_CHECK */;
+			targetProxy = 303DDCB6466E42E785B801EC /* PBXContainerItemProxy */;
+		};
+		4827B9F4E1B348E0BE196464 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DC8F4EC1AF33432A9E19FF8B /* densecrf */;
+			targetProxy = 5716758C43BF4B4CAB2B03E2 /* PBXContainerItemProxy */;
+		};
+		4A348E2BBA644AB19D10B1A4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D053CF39AD364C37B03A33ED /* lbfgs */;
+			targetProxy = 84108E81B9F644CB889C4194 /* PBXContainerItemProxy */;
+		};
+		59646A46041E4E48B0089103 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D38029908E88433AB12A12AE /* ZERO_CHECK */;
+			targetProxy = 75F25E9648EB42478386FD0F /* PBXContainerItemProxy */;
+		};
+		6544CE62B57D4E0D8607A0E8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A7344A18EEB0439C92643BD5 /* optimization */;
+			targetProxy = 36CB9464C9C9428880B8919A /* PBXContainerItemProxy */;
+		};
+		6A8D79642CF8435BA9ED1BD9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A7344A18EEB0439C92643BD5 /* optimization */;
+			targetProxy = 3C70414FA5F344AB938C8833 /* PBXContainerItemProxy */;
+		};
+		6C3FD018CF0941B89FB11F75 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D053CF39AD364C37B03A33ED /* lbfgs */;
+			targetProxy = 2F78D96F977A4A9C845339B9 /* PBXContainerItemProxy */;
+		};
+		6D0BFCF41DB130F6001119EE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D38029908E88433AB12A12AE /* ZERO_CHECK */;
+			targetProxy = 6D0BFCF51DB130F6001119EE /* PBXContainerItemProxy */;
+		};
+		6D0BFCF61DB130F6001119EE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DC8F4EC1AF33432A9E19FF8B /* densecrf */;
+			targetProxy = 6D0BFCF71DB130F6001119EE /* PBXContainerItemProxy */;
+		};
+		7347BD4EACDA4E06A0CC6D04 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D38029908E88433AB12A12AE /* ZERO_CHECK */;
+			targetProxy = 7BE92B63B3C64DA0BD4CF60D /* PBXContainerItemProxy */;
+		};
+		84D9EBAC4CD849EB997398B5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DC8F4EC1AF33432A9E19FF8B /* densecrf */;
+			targetProxy = 3EC08288E2BF4937BB84D4FD /* PBXContainerItemProxy */;
+		};
+		84FDD970C72D40968FCB2338 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A7344A18EEB0439C92643BD5 /* optimization */;
+			targetProxy = C597ED252F5B483A8F206D2A /* PBXContainerItemProxy */;
+		};
+		8874E6C95C334C84908674D4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A7344A18EEB0439C92643BD5 /* optimization */;
+			targetProxy = 0AF61AF4B74D4938A37F0FF3 /* PBXContainerItemProxy */;
+		};
+		9B82A019843741F897E7B590 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E5D36CE4345C4155803D6849 /* test_permutohedral */;
+			targetProxy = 951B0D92E8B24F6D9B10C73C /* PBXContainerItemProxy */;
+		};
+		A68E45EB50934BD5A765DB92 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D053CF39AD364C37B03A33ED /* lbfgs */;
+			targetProxy = C6B607189152471EB2BBE529 /* PBXContainerItemProxy */;
+		};
+		A6A6F9BF9D034A299048BEA7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D38029908E88433AB12A12AE /* ZERO_CHECK */;
+			targetProxy = AD001AF5AA1A432B923F7569 /* PBXContainerItemProxy */;
+		};
+		AAD5A843452641D08D72F35B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D38029908E88433AB12A12AE /* ZERO_CHECK */;
+			targetProxy = 9B0A28F962F44454976E7E23 /* PBXContainerItemProxy */;
+		};
+		B2BBA02667244337BE1D426B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DC8F4EC1AF33432A9E19FF8B /* densecrf */;
+			targetProxy = B13254CDB2574890BEC0BAC0 /* PBXContainerItemProxy */;
+		};
+		BE976C619E15466C8C143C66 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D053CF39AD364C37B03A33ED /* lbfgs */;
+			targetProxy = AB4A8FF0F3BD4044AFFC977D /* PBXContainerItemProxy */;
+		};
+		BF8B11CD57424E6C88066C6D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6386A5EF889F48F5A075043E /* test_optimization */;
+			targetProxy = 42F04A5D59684BD79A9A1512 /* PBXContainerItemProxy */;
+		};
+		CC72F0067839493FBB2EDD76 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D053CF39AD364C37B03A33ED /* lbfgs */;
+			targetProxy = 822C26EF79E145E988D03C42 /* PBXContainerItemProxy */;
+		};
+		CC8E4047393643CE931ED5A1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 099529265DE646D78ECE3B13 /* test_pairwise */;
+			targetProxy = 34F51DFBC20E4805871E0B5A /* PBXContainerItemProxy */;
+		};
+		DA6175FAAF354F2BA502B446 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DC8F4EC1AF33432A9E19FF8B /* densecrf */;
+			targetProxy = CC3FF169C0744FED8916367A /* PBXContainerItemProxy */;
+		};
+		EB95EAEC55C045E0AC5641F5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D38029908E88433AB12A12AE /* ZERO_CHECK */;
+			targetProxy = 2148BDCC262D4FA7ADF364EE /* PBXContainerItemProxy */;
+		};
+		F091A8B2927E4B43815B5CED /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DC8F4EC1AF33432A9E19FF8B /* densecrf */;
+			targetProxy = 4E0A15C3B4EF4653B00D9299 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		011A04136DDD45EE8B9C4622 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .a;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 2;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/Users/guotaiwang/Documents/workspace/densecrf/include,
+					/Users/guotaiwang/Documents/workspace/densecrf/src/../external/liblbfgs/include,
+					/Users/guotaiwang/Documents/workspace/densecrf/src/../external,
+				);
+				INSTALL_PATH = "";
+				LIBRARY_STYLE = STATIC;
+				OTHER_CFLAGS = "       -DNDEBUG  ";
+				OTHER_CPLUSPLUSFLAGS = "       -DNDEBUG  ";
+				OTHER_LIBTOOLFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = optimization;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/guotaiwang/Documents/workspace/densecrf/build/src;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = RelWithDebInfo;
+		};
+		01CD359459A244A798781AA3 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = /Users/guotaiwang/Documents/workspace/densecrf/include;
+				INSTALL_PATH = "";
+				OTHER_CFLAGS = "  ";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/guotaiwang/Documents/workspace/densecrf/build;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = RelWithDebInfo;
+		};
+		03EF1EB7ABE04CBD9D407C9F /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = /Users/guotaiwang/Documents/workspace/densecrf/include;
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = "    -DNDEBUG  ";
+				OTHER_CPLUSPLUSFLAGS = "    -DNDEBUG  ";
+				OTHER_LDFLAGS = (
+					"-Wl,-search_paths_first",
+					"-Wl,-headerpad_max_install_names",
+					/Users/guotaiwang/Documents/workspace/densecrf/build/src/MinSizeRel/libdensecrf.a,
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = dense_inference;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/guotaiwang/Documents/workspace/densecrf/build/examples;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = MinSizeRel;
+		};
+		043E72451CE743A39476D3C7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = /Users/guotaiwang/Documents/workspace/densecrf/include;
+				INSTALL_PATH = "";
+				OTHER_CFLAGS = "  ";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/guotaiwang/Documents/workspace/densecrf/build;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = Debug;
+		};
+		05FED3FCA5B74BF98AE236A2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .a;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/Users/guotaiwang/Documents/workspace/densecrf/include,
+					/Users/guotaiwang/Documents/workspace/densecrf/src/../external/liblbfgs/include,
+					/Users/guotaiwang/Documents/workspace/densecrf/src/../external,
+				);
+				INSTALL_PATH = "";
+				LIBRARY_STYLE = STATIC;
+				OTHER_CFLAGS = "    ";
+				OTHER_CPLUSPLUSFLAGS = "    ";
+				OTHER_LIBTOOLFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = optimization;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/guotaiwang/Documents/workspace/densecrf/build/src;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = Debug;
+		};
+		0B83BF884F3D415FBDE2F50F /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = /Users/guotaiwang/Documents/workspace/densecrf/include;
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = "    -DNDEBUG  ";
+				OTHER_CPLUSPLUSFLAGS = "    -DNDEBUG  ";
+				OTHER_LDFLAGS = (
+					"-Wl,-search_paths_first",
+					"-Wl,-headerpad_max_install_names",
+					/Users/guotaiwang/Documents/workspace/densecrf/build/src/MinSizeRel/liboptimization.a,
+					/Users/guotaiwang/Documents/workspace/densecrf/build/external/MinSizeRel/liblbfgs.a,
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = test_optimization;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/guotaiwang/Documents/workspace/densecrf/build/examples;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = MinSizeRel;
+		};
+		13622A3D44574F5C8F787540 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .a;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/Users/guotaiwang/Documents/workspace/densecrf/include,
+					/Users/guotaiwang/Documents/workspace/densecrf/external/liblbfgs/include,
+				);
+				INSTALL_PATH = "";
+				LIBRARY_STYLE = STATIC;
+				OTHER_CFLAGS = "    -DNDEBUG  ";
+				OTHER_LIBTOOLFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = lbfgs;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/guotaiwang/Documents/workspace/densecrf/build/external;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = Release;
+		};
+		197FC1D47E2345858A13F699 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk;
+				SYMROOT = /Users/guotaiwang/Documents/workspace/densecrf/build/build;
+			};
+			name = MinSizeRel;
+		};
+		1D710B91D1DA423A94D0354A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = /Users/guotaiwang/Documents/workspace/densecrf/include;
+				INSTALL_PATH = "";
+				OTHER_CFLAGS = "  ";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/guotaiwang/Documents/workspace/densecrf/build;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = Release;
+		};
+		342137F57B3B4899A1B3CF53 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .a;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/Users/guotaiwang/Documents/workspace/densecrf/include,
+					/Users/guotaiwang/Documents/workspace/densecrf/external/liblbfgs/include,
+				);
+				INSTALL_PATH = "";
+				LIBRARY_STYLE = STATIC;
+				OTHER_CFLAGS = "    -DNDEBUG  ";
+				OTHER_LIBTOOLFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = lbfgs;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/guotaiwang/Documents/workspace/densecrf/build/external;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = MinSizeRel;
+		};
+		39A8B80A7BBD49B584BD0B76 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 2;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = /Users/guotaiwang/Documents/workspace/densecrf/include;
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = "       -DNDEBUG  ";
+				OTHER_CPLUSPLUSFLAGS = "       -DNDEBUG  ";
+				OTHER_LDFLAGS = (
+					"-Wl,-search_paths_first",
+					"-Wl,-headerpad_max_install_names",
+					/Users/guotaiwang/Documents/workspace/densecrf/build/src/RelWithDebInfo/libdensecrf.a,
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = dense_inference;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/guotaiwang/Documents/workspace/densecrf/build/examples;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = RelWithDebInfo;
+		};
+		3AE24D1F657A4430AFF801D6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = /Users/guotaiwang/Documents/workspace/densecrf/include;
+				INSTALL_PATH = "";
+				OTHER_CFLAGS = "  ";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/guotaiwang/Documents/workspace/densecrf/build;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = Release;
+		};
+		3F928246BB9D45A9B07D76CB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk;
+				SYMROOT = /Users/guotaiwang/Documents/workspace/densecrf/build/build;
+			};
+			name = Release;
+		};
+		40BEBD51B91E425280751F00 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = /Users/guotaiwang/Documents/workspace/densecrf/include;
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = "    -DNDEBUG  ";
+				OTHER_CPLUSPLUSFLAGS = "    -DNDEBUG  ";
+				OTHER_LDFLAGS = (
+					"-Wl,-search_paths_first",
+					"-Wl,-headerpad_max_install_names",
+					/Users/guotaiwang/Documents/workspace/densecrf/build/src/Release/libdensecrf.a,
+					/Users/guotaiwang/Documents/workspace/densecrf/build/src/Release/liboptimization.a,
+					/Users/guotaiwang/Documents/workspace/densecrf/build/external/Release/liblbfgs.a,
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = dense_learning;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/guotaiwang/Documents/workspace/densecrf/build/examples;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = Release;
+		};
+		47B1E8DDA8E24DD1A6D1C746 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = /Users/guotaiwang/Documents/workspace/densecrf/include;
+				INSTALL_PATH = "";
+				OTHER_CFLAGS = "  ";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/guotaiwang/Documents/workspace/densecrf/build;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = MinSizeRel;
+		};
+		49C3FC75B48644549F5F1D65 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = /Users/guotaiwang/Documents/workspace/densecrf/include;
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = "    -DNDEBUG  ";
+				OTHER_CPLUSPLUSFLAGS = "    -DNDEBUG  ";
+				OTHER_LDFLAGS = (
+					"-Wl,-search_paths_first",
+					"-Wl,-headerpad_max_install_names",
+					/Users/guotaiwang/Documents/workspace/densecrf/build/src/Release/libdensecrf.a,
+					/Users/guotaiwang/Documents/workspace/densecrf/build/src/Release/liboptimization.a,
+					/Users/guotaiwang/Documents/workspace/densecrf/build/external/Release/liblbfgs.a,
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = test_pairwise;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/guotaiwang/Documents/workspace/densecrf/build/examples;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = Release;
+		};
+		58B6FC62B76242C1B2C5F8B6 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 2;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = /Users/guotaiwang/Documents/workspace/densecrf/include;
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = "       -DNDEBUG  ";
+				OTHER_CPLUSPLUSFLAGS = "       -DNDEBUG  ";
+				OTHER_LDFLAGS = (
+					"-Wl,-search_paths_first",
+					"-Wl,-headerpad_max_install_names",
+					/Users/guotaiwang/Documents/workspace/densecrf/build/src/RelWithDebInfo/libdensecrf.a,
+					/Users/guotaiwang/Documents/workspace/densecrf/build/src/RelWithDebInfo/liboptimization.a,
+					/Users/guotaiwang/Documents/workspace/densecrf/build/external/RelWithDebInfo/liblbfgs.a,
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = test_pairwise;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/guotaiwang/Documents/workspace/densecrf/build/examples;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = RelWithDebInfo;
+		};
+		59E5DF098A7542DF9DF3CAE2 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk;
+				SYMROOT = /Users/guotaiwang/Documents/workspace/densecrf/build/build;
+			};
+			name = RelWithDebInfo;
+		};
+		5D28CC03BF5E4FC5A171EBCB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .a;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/Users/guotaiwang/Documents/workspace/densecrf/include,
+					/Users/guotaiwang/Documents/workspace/densecrf/src/../external/liblbfgs/include,
+					/Users/guotaiwang/Documents/workspace/densecrf/src/../external,
+				);
+				INSTALL_PATH = "";
+				LIBRARY_STYLE = STATIC;
+				OTHER_CFLAGS = "    ";
+				OTHER_CPLUSPLUSFLAGS = "    ";
+				OTHER_LIBTOOLFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = densecrf;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/guotaiwang/Documents/workspace/densecrf/build/src;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = Debug;
+		};
+		664CFD366923421BA88366DA /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = /Users/guotaiwang/Documents/workspace/densecrf/include;
+				INSTALL_PATH = "";
+				OTHER_CFLAGS = "  ";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/guotaiwang/Documents/workspace/densecrf/build;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = RelWithDebInfo;
+		};
+		6C99AC14526F464E87BB9F55 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 2;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = /Users/guotaiwang/Documents/workspace/densecrf/include;
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = "       -DNDEBUG  ";
+				OTHER_CPLUSPLUSFLAGS = "       -DNDEBUG  ";
+				OTHER_LDFLAGS = (
+					"-Wl,-search_paths_first",
+					"-Wl,-headerpad_max_install_names",
+					/Users/guotaiwang/Documents/workspace/densecrf/build/src/RelWithDebInfo/libdensecrf.a,
+					/Users/guotaiwang/Documents/workspace/densecrf/build/src/RelWithDebInfo/liboptimization.a,
+					/Users/guotaiwang/Documents/workspace/densecrf/build/external/RelWithDebInfo/liblbfgs.a,
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = test_permutohedral;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/guotaiwang/Documents/workspace/densecrf/build/examples;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = RelWithDebInfo;
+		};
+		6D0BFCFD1DB130F6001119EE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = /Users/guotaiwang/Documents/workspace/densecrf/include;
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = "    ";
+				OTHER_CPLUSPLUSFLAGS = "    ";
+				OTHER_LDFLAGS = (
+					"-Wl,-search_paths_first",
+					"-Wl,-headerpad_max_install_names",
+					/Users/guotaiwang/Documents/workspace/densecrf/build/src/Debug/libdensecrf.a,
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = my_dense_inference;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/guotaiwang/Documents/workspace/densecrf/build/examples;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = Debug;
+		};
+		6D0BFCFE1DB130F6001119EE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = /Users/guotaiwang/Documents/workspace/densecrf/include;
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = "    -DNDEBUG  ";
+				OTHER_CPLUSPLUSFLAGS = "    -DNDEBUG  ";
+				OTHER_LDFLAGS = (
+					"-Wl,-search_paths_first",
+					"-Wl,-headerpad_max_install_names",
+					/Users/guotaiwang/Documents/workspace/densecrf/build/src/Release/libdensecrf.a,
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = my_dense_inference;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/guotaiwang/Documents/workspace/densecrf/build/examples;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = Release;
+		};
+		6D0BFCFF1DB130F6001119EE /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = /Users/guotaiwang/Documents/workspace/densecrf/include;
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = "    -DNDEBUG  ";
+				OTHER_CPLUSPLUSFLAGS = "    -DNDEBUG  ";
+				OTHER_LDFLAGS = (
+					"-Wl,-search_paths_first",
+					"-Wl,-headerpad_max_install_names",
+					/Users/guotaiwang/Documents/workspace/densecrf/build/src/MinSizeRel/libdensecrf.a,
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = my_dense_inference;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/guotaiwang/Documents/workspace/densecrf/build/examples;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = MinSizeRel;
+		};
+		6D0BFD001DB130F6001119EE /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 2;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = /Users/guotaiwang/Documents/workspace/densecrf/include;
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = "       -DNDEBUG  ";
+				OTHER_CPLUSPLUSFLAGS = "       -DNDEBUG  ";
+				OTHER_LDFLAGS = (
+					"-Wl,-search_paths_first",
+					"-Wl,-headerpad_max_install_names",
+					/Users/guotaiwang/Documents/workspace/densecrf/build/src/RelWithDebInfo/libdensecrf.a,
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = my_dense_inference;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/guotaiwang/Documents/workspace/densecrf/build/examples;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = RelWithDebInfo;
+		};
+		6E2EDED77E1246AEA41C22C3 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .a;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 2;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/Users/guotaiwang/Documents/workspace/densecrf/include,
+					/Users/guotaiwang/Documents/workspace/densecrf/external/liblbfgs/include,
+				);
+				INSTALL_PATH = "";
+				LIBRARY_STYLE = STATIC;
+				OTHER_CFLAGS = "       -DNDEBUG  ";
+				OTHER_LIBTOOLFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = lbfgs;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/guotaiwang/Documents/workspace/densecrf/build/external;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = RelWithDebInfo;
+		};
+		713213AE3358431EB25132EF /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .a;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/Users/guotaiwang/Documents/workspace/densecrf/include,
+					/Users/guotaiwang/Documents/workspace/densecrf/src/../external/liblbfgs/include,
+					/Users/guotaiwang/Documents/workspace/densecrf/src/../external,
+				);
+				INSTALL_PATH = "";
+				LIBRARY_STYLE = STATIC;
+				OTHER_CFLAGS = "    -DNDEBUG  ";
+				OTHER_CPLUSPLUSFLAGS = "    -DNDEBUG  ";
+				OTHER_LIBTOOLFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = densecrf;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/guotaiwang/Documents/workspace/densecrf/build/src;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = MinSizeRel;
+		};
+		7337DCB2616849028717FF6E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = /Users/guotaiwang/Documents/workspace/densecrf/include;
+				INSTALL_PATH = "";
+				OTHER_CFLAGS = "  ";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/guotaiwang/Documents/workspace/densecrf/build;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = Debug;
+		};
+		7921FC153FD94CA8BE2ED609 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .a;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/Users/guotaiwang/Documents/workspace/densecrf/include,
+					/Users/guotaiwang/Documents/workspace/densecrf/src/../external/liblbfgs/include,
+					/Users/guotaiwang/Documents/workspace/densecrf/src/../external,
+				);
+				INSTALL_PATH = "";
+				LIBRARY_STYLE = STATIC;
+				OTHER_CFLAGS = "    -DNDEBUG  ";
+				OTHER_CPLUSPLUSFLAGS = "    -DNDEBUG  ";
+				OTHER_LIBTOOLFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = optimization;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/guotaiwang/Documents/workspace/densecrf/build/src;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = Release;
+		};
+		79F50F89B99549759F411953 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = /Users/guotaiwang/Documents/workspace/densecrf/include;
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = "    -DNDEBUG  ";
+				OTHER_CPLUSPLUSFLAGS = "    -DNDEBUG  ";
+				OTHER_LDFLAGS = (
+					"-Wl,-search_paths_first",
+					"-Wl,-headerpad_max_install_names",
+					/Users/guotaiwang/Documents/workspace/densecrf/build/src/Release/libdensecrf.a,
+					/Users/guotaiwang/Documents/workspace/densecrf/build/src/Release/liboptimization.a,
+					/Users/guotaiwang/Documents/workspace/densecrf/build/external/Release/liblbfgs.a,
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = test_permutohedral;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/guotaiwang/Documents/workspace/densecrf/build/examples;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = Release;
+		};
+		802D171588C24195BEB5F922 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk;
+				SYMROOT = /Users/guotaiwang/Documents/workspace/densecrf/build/build;
+			};
+			name = Debug;
+		};
+		824F16654040482E9DD0454E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = /Users/guotaiwang/Documents/workspace/densecrf/include;
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = "    ";
+				OTHER_CPLUSPLUSFLAGS = "    ";
+				OTHER_LDFLAGS = (
+					"-Wl,-search_paths_first",
+					"-Wl,-headerpad_max_install_names",
+					/Users/guotaiwang/Documents/workspace/densecrf/build/src/Debug/liboptimization.a,
+					/Users/guotaiwang/Documents/workspace/densecrf/build/external/Debug/liblbfgs.a,
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = test_optimization;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/guotaiwang/Documents/workspace/densecrf/build/examples;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = Debug;
+		};
+		862FD084949B4DF880C48792 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .a;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/Users/guotaiwang/Documents/workspace/densecrf/include,
+					/Users/guotaiwang/Documents/workspace/densecrf/external/liblbfgs/include,
+				);
+				INSTALL_PATH = "";
+				LIBRARY_STYLE = STATIC;
+				OTHER_CFLAGS = "    ";
+				OTHER_LIBTOOLFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = lbfgs;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/guotaiwang/Documents/workspace/densecrf/build/external;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = Debug;
+		};
+		8A6DCED04C944EA69DAAF706 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = /Users/guotaiwang/Documents/workspace/densecrf/include;
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = "    -DNDEBUG  ";
+				OTHER_CPLUSPLUSFLAGS = "    -DNDEBUG  ";
+				OTHER_LDFLAGS = (
+					"-Wl,-search_paths_first",
+					"-Wl,-headerpad_max_install_names",
+					/Users/guotaiwang/Documents/workspace/densecrf/build/src/MinSizeRel/libdensecrf.a,
+					/Users/guotaiwang/Documents/workspace/densecrf/build/src/MinSizeRel/liboptimization.a,
+					/Users/guotaiwang/Documents/workspace/densecrf/build/external/MinSizeRel/liblbfgs.a,
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = test_permutohedral;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/guotaiwang/Documents/workspace/densecrf/build/examples;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = MinSizeRel;
+		};
+		90D28BD46E6A45D6B98692C2 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = /Users/guotaiwang/Documents/workspace/densecrf/include;
+				INSTALL_PATH = "";
+				OTHER_CFLAGS = "  ";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/guotaiwang/Documents/workspace/densecrf/build;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = MinSizeRel;
+		};
+		91FF3CF1E5824C79B25FAFC9 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = /Users/guotaiwang/Documents/workspace/densecrf/include;
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = "    -DNDEBUG  ";
+				OTHER_CPLUSPLUSFLAGS = "    -DNDEBUG  ";
+				OTHER_LDFLAGS = (
+					"-Wl,-search_paths_first",
+					"-Wl,-headerpad_max_install_names",
+					/Users/guotaiwang/Documents/workspace/densecrf/build/src/MinSizeRel/libdensecrf.a,
+					/Users/guotaiwang/Documents/workspace/densecrf/build/src/MinSizeRel/liboptimization.a,
+					/Users/guotaiwang/Documents/workspace/densecrf/build/external/MinSizeRel/liblbfgs.a,
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = test_pairwise;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/guotaiwang/Documents/workspace/densecrf/build/examples;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = MinSizeRel;
+		};
+		A00E550A9E534B1EA3BE6E8C /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 2;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = /Users/guotaiwang/Documents/workspace/densecrf/include;
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = "       -DNDEBUG  ";
+				OTHER_CPLUSPLUSFLAGS = "       -DNDEBUG  ";
+				OTHER_LDFLAGS = (
+					"-Wl,-search_paths_first",
+					"-Wl,-headerpad_max_install_names",
+					/Users/guotaiwang/Documents/workspace/densecrf/build/src/RelWithDebInfo/liboptimization.a,
+					/Users/guotaiwang/Documents/workspace/densecrf/build/external/RelWithDebInfo/liblbfgs.a,
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = test_optimization;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/guotaiwang/Documents/workspace/densecrf/build/examples;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = RelWithDebInfo;
+		};
+		C018AA7C433547FA89A4D8DB /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .a;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/Users/guotaiwang/Documents/workspace/densecrf/include,
+					/Users/guotaiwang/Documents/workspace/densecrf/src/../external/liblbfgs/include,
+					/Users/guotaiwang/Documents/workspace/densecrf/src/../external,
+				);
+				INSTALL_PATH = "";
+				LIBRARY_STYLE = STATIC;
+				OTHER_CFLAGS = "    -DNDEBUG  ";
+				OTHER_CPLUSPLUSFLAGS = "    -DNDEBUG  ";
+				OTHER_LIBTOOLFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = optimization;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/guotaiwang/Documents/workspace/densecrf/build/src;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = MinSizeRel;
+		};
+		C17DEF0E56614838ACE412BC /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = /Users/guotaiwang/Documents/workspace/densecrf/include;
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = "    -DNDEBUG  ";
+				OTHER_CPLUSPLUSFLAGS = "    -DNDEBUG  ";
+				OTHER_LDFLAGS = (
+					"-Wl,-search_paths_first",
+					"-Wl,-headerpad_max_install_names",
+					/Users/guotaiwang/Documents/workspace/densecrf/build/src/MinSizeRel/libdensecrf.a,
+					/Users/guotaiwang/Documents/workspace/densecrf/build/src/MinSizeRel/liboptimization.a,
+					/Users/guotaiwang/Documents/workspace/densecrf/build/external/MinSizeRel/liblbfgs.a,
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = dense_learning;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/guotaiwang/Documents/workspace/densecrf/build/examples;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = MinSizeRel;
+		};
+		C5FAE855629746C4996729D6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = /Users/guotaiwang/Documents/workspace/densecrf/include;
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = "    -DNDEBUG  ";
+				OTHER_CPLUSPLUSFLAGS = "    -DNDEBUG  ";
+				OTHER_LDFLAGS = (
+					"-Wl,-search_paths_first",
+					"-Wl,-headerpad_max_install_names",
+					/Users/guotaiwang/Documents/workspace/densecrf/build/src/Release/liboptimization.a,
+					/Users/guotaiwang/Documents/workspace/densecrf/build/external/Release/liblbfgs.a,
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = test_optimization;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/guotaiwang/Documents/workspace/densecrf/build/examples;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = Release;
+		};
+		C71332500B3A4C26B1443211 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = /Users/guotaiwang/Documents/workspace/densecrf/include;
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = "    ";
+				OTHER_CPLUSPLUSFLAGS = "    ";
+				OTHER_LDFLAGS = (
+					"-Wl,-search_paths_first",
+					"-Wl,-headerpad_max_install_names",
+					/Users/guotaiwang/Documents/workspace/densecrf/build/src/Debug/libdensecrf.a,
+					/Users/guotaiwang/Documents/workspace/densecrf/build/src/Debug/liboptimization.a,
+					/Users/guotaiwang/Documents/workspace/densecrf/build/external/Debug/liblbfgs.a,
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = dense_learning;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/guotaiwang/Documents/workspace/densecrf/build/examples;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = Debug;
+		};
+		D2CE718EDA784C9A99A5DA5A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = /Users/guotaiwang/Documents/workspace/densecrf/include;
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = "    -DNDEBUG  ";
+				OTHER_CPLUSPLUSFLAGS = "    -DNDEBUG  ";
+				OTHER_LDFLAGS = (
+					"-Wl,-search_paths_first",
+					"-Wl,-headerpad_max_install_names",
+					/Users/guotaiwang/Documents/workspace/densecrf/build/src/Release/libdensecrf.a,
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = dense_inference;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/guotaiwang/Documents/workspace/densecrf/build/examples;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = Release;
+		};
+		D3DD0CB1D5644DEA8DA2FDFB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = /Users/guotaiwang/Documents/workspace/densecrf/include;
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = "    ";
+				OTHER_CPLUSPLUSFLAGS = "    ";
+				OTHER_LDFLAGS = (
+					"-Wl,-search_paths_first",
+					"-Wl,-headerpad_max_install_names",
+					/Users/guotaiwang/Documents/workspace/densecrf/build/src/Debug/libdensecrf.a,
+					/Users/guotaiwang/Documents/workspace/densecrf/build/src/Debug/liboptimization.a,
+					/Users/guotaiwang/Documents/workspace/densecrf/build/external/Debug/liblbfgs.a,
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = test_permutohedral;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/guotaiwang/Documents/workspace/densecrf/build/examples;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = Debug;
+		};
+		E11B573A9CC64D5E9F618902 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = /Users/guotaiwang/Documents/workspace/densecrf/include;
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = "    ";
+				OTHER_CPLUSPLUSFLAGS = "    ";
+				OTHER_LDFLAGS = (
+					"-Wl,-search_paths_first",
+					"-Wl,-headerpad_max_install_names",
+					/Users/guotaiwang/Documents/workspace/densecrf/build/src/Debug/libdensecrf.a,
+					/Users/guotaiwang/Documents/workspace/densecrf/build/src/Debug/liboptimization.a,
+					/Users/guotaiwang/Documents/workspace/densecrf/build/external/Debug/liblbfgs.a,
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = test_pairwise;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/guotaiwang/Documents/workspace/densecrf/build/examples;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = Debug;
+		};
+		E874CB8B8637407DBC59A8F6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .a;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/Users/guotaiwang/Documents/workspace/densecrf/include,
+					/Users/guotaiwang/Documents/workspace/densecrf/src/../external/liblbfgs/include,
+					/Users/guotaiwang/Documents/workspace/densecrf/src/../external,
+				);
+				INSTALL_PATH = "";
+				LIBRARY_STYLE = STATIC;
+				OTHER_CFLAGS = "    -DNDEBUG  ";
+				OTHER_CPLUSPLUSFLAGS = "    -DNDEBUG  ";
+				OTHER_LIBTOOLFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = densecrf;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/guotaiwang/Documents/workspace/densecrf/build/src;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = Release;
+		};
+		EF767AEF189644D094F4E329 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 2;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = /Users/guotaiwang/Documents/workspace/densecrf/include;
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = "       -DNDEBUG  ";
+				OTHER_CPLUSPLUSFLAGS = "       -DNDEBUG  ";
+				OTHER_LDFLAGS = (
+					"-Wl,-search_paths_first",
+					"-Wl,-headerpad_max_install_names",
+					/Users/guotaiwang/Documents/workspace/densecrf/build/src/RelWithDebInfo/libdensecrf.a,
+					/Users/guotaiwang/Documents/workspace/densecrf/build/src/RelWithDebInfo/liboptimization.a,
+					/Users/guotaiwang/Documents/workspace/densecrf/build/external/RelWithDebInfo/liblbfgs.a,
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = dense_learning;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/guotaiwang/Documents/workspace/densecrf/build/examples;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = RelWithDebInfo;
+		};
+		F7BFBD6EC9CD415FA3195AD0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = /Users/guotaiwang/Documents/workspace/densecrf/include;
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = "    ";
+				OTHER_CPLUSPLUSFLAGS = "    ";
+				OTHER_LDFLAGS = (
+					"-Wl,-search_paths_first",
+					"-Wl,-headerpad_max_install_names",
+					/Users/guotaiwang/Documents/workspace/densecrf/build/src/Debug/libdensecrf.a,
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = dense_inference;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/guotaiwang/Documents/workspace/densecrf/build/examples;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = Debug;
+		};
+		FFE510E387524243B83C9AB6 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .a;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 2;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/Users/guotaiwang/Documents/workspace/densecrf/include,
+					/Users/guotaiwang/Documents/workspace/densecrf/src/../external/liblbfgs/include,
+					/Users/guotaiwang/Documents/workspace/densecrf/src/../external,
+				);
+				INSTALL_PATH = "";
+				LIBRARY_STYLE = STATIC;
+				OTHER_CFLAGS = "       -DNDEBUG  ";
+				OTHER_CPLUSPLUSFLAGS = "       -DNDEBUG  ";
+				OTHER_LIBTOOLFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = densecrf;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/guotaiwang/Documents/workspace/densecrf/build/src;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = RelWithDebInfo;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0A9582E2FD4F4984AB2A3BC7 /* Build configuration list for PBXProject "densecrf" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				802D171588C24195BEB5F922 /* Debug */,
+				3F928246BB9D45A9B07D76CB /* Release */,
+				197FC1D47E2345858A13F699 /* MinSizeRel */,
+				59E5DF098A7542DF9DF3CAE2 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		0CD6358BCEB749B48FCEE686 /* Build configuration list for PBXNativeTarget "test_permutohedral" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D3DD0CB1D5644DEA8DA2FDFB /* Debug */,
+				79F50F89B99549759F411953 /* Release */,
+				8A6DCED04C944EA69DAAF706 /* MinSizeRel */,
+				6C99AC14526F464E87BB9F55 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		1A08ECA79547492DA8FF18DA /* Build configuration list for PBXNativeTarget "test_pairwise" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E11B573A9CC64D5E9F618902 /* Debug */,
+				49C3FC75B48644549F5F1D65 /* Release */,
+				91FF3CF1E5824C79B25FAFC9 /* MinSizeRel */,
+				58B6FC62B76242C1B2C5F8B6 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		6057A262DFDE4CA5A1DAC889 /* Build configuration list for PBXNativeTarget "dense_learning" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C71332500B3A4C26B1443211 /* Debug */,
+				40BEBD51B91E425280751F00 /* Release */,
+				C17DEF0E56614838ACE412BC /* MinSizeRel */,
+				EF767AEF189644D094F4E329 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		6D0BFCFC1DB130F6001119EE /* Build configuration list for PBXNativeTarget "my_dense_inference" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6D0BFCFD1DB130F6001119EE /* Debug */,
+				6D0BFCFE1DB130F6001119EE /* Release */,
+				6D0BFCFF1DB130F6001119EE /* MinSizeRel */,
+				6D0BFD001DB130F6001119EE /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		7A5390A9F50749D592DBDCAB /* Build configuration list for PBXNativeTarget "optimization" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				05FED3FCA5B74BF98AE236A2 /* Debug */,
+				7921FC153FD94CA8BE2ED609 /* Release */,
+				C018AA7C433547FA89A4D8DB /* MinSizeRel */,
+				011A04136DDD45EE8B9C4622 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		A1C9F96CFC91440B9FEBA272 /* Build configuration list for PBXNativeTarget "test_optimization" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				824F16654040482E9DD0454E /* Debug */,
+				C5FAE855629746C4996729D6 /* Release */,
+				0B83BF884F3D415FBDE2F50F /* MinSizeRel */,
+				A00E550A9E534B1EA3BE6E8C /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		B5D6F365FD7647969496F2A7 /* Build configuration list for PBXNativeTarget "dense_inference" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F7BFBD6EC9CD415FA3195AD0 /* Debug */,
+				D2CE718EDA784C9A99A5DA5A /* Release */,
+				03EF1EB7ABE04CBD9D407C9F /* MinSizeRel */,
+				39A8B80A7BBD49B584BD0B76 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		BB0F32EAF3984D218D8E7508 /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7337DCB2616849028717FF6E /* Debug */,
+				1D710B91D1DA423A94D0354A /* Release */,
+				90D28BD46E6A45D6B98692C2 /* MinSizeRel */,
+				01CD359459A244A798781AA3 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		DAD045FFEBC84C61B53FF109 /* Build configuration list for PBXNativeTarget "densecrf" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5D28CC03BF5E4FC5A171EBCB /* Debug */,
+				E874CB8B8637407DBC59A8F6 /* Release */,
+				713213AE3358431EB25132EF /* MinSizeRel */,
+				FFE510E387524243B83C9AB6 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		F1F1AFBA50FB4C6AAA955A27 /* Build configuration list for PBXNativeTarget "lbfgs" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				862FD084949B4DF880C48792 /* Debug */,
+				13622A3D44574F5C8F787540 /* Release */,
+				342137F57B3B4899A1B3CF53 /* MinSizeRel */,
+				6E2EDED77E1246AEA41C22C3 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		FAFCAA37122F42E58EB9CF5A /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				043E72451CE743A39476D3C7 /* Debug */,
+				3AE24D1F657A4430AFF801D6 /* Release */,
+				47B1E8DDA8E24DD1A6D1C746 /* MinSizeRel */,
+				664CFD366923421BA88366DA /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E15C752C86B3426BBCC39F8C /* Project object */;
+}

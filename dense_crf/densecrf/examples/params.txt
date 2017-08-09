@@ -1,0 +1,2 @@
+0 80 13 3 3 3
+(w1, alpha, beta, w2, gama, iter)
