@@ -318,8 +318,8 @@ static PyMethodDef Methods[] = {
     {NULL, NULL, 0, NULL}
 };
 
-PyMODINIT_FUNC
-initmax_flow3d(void) {
-    (void) Py_InitModule("max_flow3d", Methods);
-    import_array();
-}
+//PyMODINIT_FUNC
+//initmax_flow3d(void) {
+//    (void) Py_InitModule("max_flow3d", Methods);
+//    import_array();
+//}

@@ -31,37 +31,17 @@ max_flow_wrapper(PyObject *self, PyObject *args)
     npy_intp * shape = PyArray_DIMS(arr_I);  // npy_intp array of length nd showing length in each dim.
     npy_intp * shape_fP = PyArray_DIMS(arr_fP);
     npy_intp * shape_bP = PyArray_DIMS(arr_bP);
-//    cout<<"crf input shape: ";
     for(int i=0; i<nd; i++)
     {
-//        cout<<shape[i]<<" ";
         if(shape[i] !=shape_fP[i] || shape[i]!=shape_bP[i])
         {
             cout<<"input shape does not match"<<endl;
             return NULL;
         }
     }
-//    cout<<endl;
-//    for (int i=0; i<nd; ++i)
-//    std::cout<<" "<<shape[i];
-//    std::cout<<std::endl;
-    
-//    std::cout<<"stride "<<arr_I->strides[0]<<" "<<arr_I->strides[1]<<endl;
-    
-//    for (int i=0; i<arr_fP->nd; ++i)
-//    std::cout<<" "<<arr_fP->dimensions[i];
-//    std::cout<<std::endl;
-    
-//    Py_ssize_t len=PyTuple_GET_SIZE(param);
-//    cout<<"param size "<<len<<std::endl;
-//    for(int i=0;i<len;i++)
-//    {
-//        PyObject * temp_object =PyTuple_GET_ITEM(param, i);
-//        cout<<PyFloat_AsDouble(temp_object)<<" ";
-//    }
+
     double lambda = PyFloat_AsDouble(PyTuple_GET_ITEM(param, 0));
     double sigma  = PyFloat_AsDouble(PyTuple_GET_ITEM(param, 1));
-//    cout<<"lambda "<<lambda<<", sigma "<<sigma<<endl;
     
     typedef Graph<float, float, float> GraphType;
 //    /*estimated # of nodes*/ /*estimated # of edges*/
@@ -289,9 +269,3 @@ static PyMethodDef Methods[] = {
     {"interactive_max_flow",  interactive_max_flow_wrapper, METH_VARARGS, "computing max flow"},
     {NULL, NULL, 0, NULL}
 };
-
-PyMODINIT_FUNC
-initmax_flow(void) {
-    (void) Py_InitModule("max_flow", Methods);
-    import_array();
-}
