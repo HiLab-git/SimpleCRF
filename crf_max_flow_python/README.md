@@ -8,4 +8,6 @@ python setup.py build
 python setup.py install
 ```
 
+This will install two packages: max_flow and max_flow3d. See test.py for examples of using these packages. 
 
+![crf_2d](../data/crf_2d.png)
