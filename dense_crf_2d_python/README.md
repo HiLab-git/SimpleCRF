@@ -1,4 +1,4 @@
-# Python wrap of maxflow for 2D and 3D image segmentation
+# Python wrap of dense CRF for 2D image segmentation
 This package is a Python wrap of 2D fully connected (dense) CRF algorithm written in cpp.
 
 To build and install, run the following commands: 
