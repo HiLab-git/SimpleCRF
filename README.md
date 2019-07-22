@@ -1,5 +1,5 @@
 # CRF_wrap
-Matlab and Python wrap of conditional random field (CRF) and dense CRF, both 2D and 3D are supported, according to the following papers:
+Matlab and Python wrap of conditional random field (CRF) and fully connected (dense) CRF for 2D and 3D image segmentation, according to the following papers:
 
 [1] Yuri Boykov and Vladimir Kolmogorov, "An experimental comparison of min-cut/max-flow algorithms for energy minimization in vision", in IEEE TPAMI, 2004.
 
