@@ -1,5 +1,5 @@
 
-#include "dense_crf_core.h"
+#include "densecrf_core.h"
 
 MatrixXf computeUnary( const float *prob, int W, int H){
     const float u_energy = -log( 1.0 / 2 );

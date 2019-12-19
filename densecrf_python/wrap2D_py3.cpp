@@ -1,15 +1,16 @@
-#include "max_flow.cpp"
+#include "densecrf.cpp"
 
-static struct PyModuleDef sMaxFlow = 
+static struct PyModuleDef sDenseCRF = 
 {
     PyModuleDef_HEAD_INIT,
-    "max_flow", /* name of module */
+    "denseCRF", /* name of module */
     "",          /* module documentation, may be NULL */
     -1,          /* size of per-interpreter state of the module, or -1 if the module keeps state in global variables. */
     Methods
 };
 
-PyMODINIT_FUNC PyInit_max_flow(void) {
+
+PyMODINIT_FUNC PyInit_denseCRF(void) {
     import_array();
-    return PyModule_Create(&sMaxFlow);
+    return PyModule_Create(&sDenseCRF);
 }

@@ -1,9 +1,9 @@
-import dense_crf
+import denseCRF
 import numpy as np
 from PIL import Image
 import matplotlib.pyplot as plt
 
-def test_dense_crf():
+def demo_densecrf():
     I = Image.open('../data/img2d.png')
     Iq = np.asarray(I.convert('L'), np.uint8)
     P  = np.asarray(Image.open('../data/prob2d.png'), np.float32)
@@ -18,7 +18,7 @@ def test_dense_crf():
     gamma = 10   # spatial std
     it    = 5.0  # iteration
     param = (w1, alpha, beta, w2, gamma, it)
-    lab = dense_crf.dense_crf(Iq, fP, param)
+    lab = denseCRF.densecrf(Iq, fP, param)
     print(lab.min(), lab.max())
     plt.subplot(1,3,1); plt.imshow(I)
     plt.subplot(1,3,2); plt.imshow(P)
@@ -26,4 +26,4 @@ def test_dense_crf():
     plt.show()
 
 if __name__ == "__main__":
-    test_dense_crf()
+    demo_densecrf()

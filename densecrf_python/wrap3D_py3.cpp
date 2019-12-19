@@ -1,15 +1,16 @@
-#include "max_flow3d.cpp"
+#include "densecrf3d.cpp"
 
-static struct PyModuleDef sMaxFlow3d = 
+static struct PyModuleDef sDenseCRF = 
 {
     PyModuleDef_HEAD_INIT,
-    "max_flow3d", /* name of module */
+    "denseCRF3D", /* name of module */
     "",          /* module documentation, may be NULL */
     -1,          /* size of per-interpreter state of the module, or -1 if the module keeps state in global variables. */
     Methods
 };
 
-PyMODINIT_FUNC PyInit_max_flow3d(void) {
+
+PyMODINIT_FUNC PyInit_denseCRF3D(void) {
     import_array();
-    return PyModule_Create(&sMaxFlow3d);
+    return PyModule_Create(&sDenseCRF);
 }

@@ -1,16 +1,15 @@
-import dense_crf3d
-import numpy as np
-import nibabel
 
-import dense_crf
+import nibabel
+import denseCRF3D
 import numpy as np
 from PIL import Image
 import matplotlib.pyplot as plt
 
-def test_dense_crf3d():
-    I1Nii = nibabel.load('densecrf_3d/applicationAndExamples/example/Flair_normalized.nii.gz')
-    I2Nii = nibabel.load('densecrf_3d/applicationAndExamples/example/DWI_normalized.nii.gz')
-    PNii = nibabel.load('densecrf_3d/applicationAndExamples/example/lesionProbMap.nii.gz')
+def demo_densecrf3d():
+    data_root  = '../dependency/densecrf3d/applicationAndExamples/example/'
+    I1Nii = nibabel.load(data_root + 'Flair_normalized.nii.gz')
+    I2Nii = nibabel.load(data_root + 'DWI_normalized.nii.gz')
+    PNii = nibabel.load(data_root +'lesionProbMap.nii.gz')
     I1 = I1Nii.get_data()
     I2 = I2Nii.get_data()
     P  = PNii.get_data()
@@ -38,12 +37,12 @@ def test_dense_crf3d():
     dense_crf_param['BilateralW'] = 3.0
     dense_crf_param['BilateralModsStds'] = (3.0,3.0)
 
-    lab = dense_crf3d.dense_crf3d(I, P, dense_crf_param)
+    lab = denseCRF3D.densecrf3d(I, P, dense_crf_param)
     labNii = nibabel.Nifti1Image(lab, np.eye(4))
-    nibabel.save(labNii, 'densecrf_3d/applicationAndExamples/example/results/lesionSegMap.nii.gz')
+    nibabel.save(labNii, data_root + 'results/lesionSegMap.nii.gz')
 
 if __name__ == "__main__":
-    test_dense_crf3d()
+    demo_densecrf3d()
 
 
 

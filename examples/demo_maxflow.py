@@ -1,11 +1,11 @@
-import max_flow
-import max_flow3d
+
 import numpy as np
 import SimpleITK as sitk
+import maxflow
 from PIL import Image
 import matplotlib.pyplot as plt
 
-def test_max_flow():
+def demo_maxflow():
     I = Image.open('../data/img2d.png')
     Iq = np.asarray(I.convert('L'), np.float32)
     P = np.asarray(Image.open('../data/prob2d.png'), np.float32)
@@ -15,7 +15,7 @@ def test_max_flow():
     lamda = 10.0  
     sigma = 5.0
     param = (lamda, sigma)
-    lab = max_flow.max_flow(Iq, fP, bP, param)
+    lab = maxflow.maxflow2d(Iq, fP, bP, param)
 
     plt.subplot(1,4,1); plt.axis('off'); plt.imshow(I);  plt.title('input image')
     plt.subplot(1,4,2); plt.axis('off'); plt.imshow(fP);   plt.title('probability map')
@@ -23,7 +23,7 @@ def test_max_flow():
     plt.subplot(1,4,4); plt.axis('off'); plt.imshow(lab); plt.title('CRF result')
     plt.show()
 
-def test_interactive_max_flow():
+def demo_interactive_maxflow():
     I = Image.open('../data/img2d.png')
     Iq = np.asarray(I.convert('L'), np.float32)
     P = np.asarray(Image.open('../data/prob2d.png'), np.float32)
@@ -41,7 +41,7 @@ def test_interactive_max_flow():
     lamda = 10.0
     sigma = 5.0
     param = (lamda, sigma)
-    lab   = max_flow.interactive_max_flow(Iq, fP, bP, S,param)
+    lab   = maxflow.interactive_maxflow2d(Iq, fP, bP, S,param)
     plt.subplot(1,3,1); plt.axis('off'); plt.imshow(Iq);  plt.title('input image')
     plt.subplot(1,3,2); plt.axis('off'); plt.imshow(P); 
     plt.plot([seed1_x], [seed1_y], 'bo', markersize = 2)
@@ -50,11 +50,11 @@ def test_interactive_max_flow():
     plt.subplot(1,3,3); plt.axis('off'); plt.imshow(lab); plt.title('CRF result')
     plt.show()
 
-def test_max_flow3d():
+def demo_maxflow3d():
     img_name   = "../data/atp.nii.gz"
     prob_name  = "../data/prob.nii.gz"
     save_name  = "../data/seg_auto.nii.gz"
-    img_obj = sitk.ReadImage(img_name)
+    img_obj  = sitk.ReadImage(img_name)
     img_data = sitk.GetArrayFromImage(img_obj)
     img_data = np.asarray(img_data, np.float32)
     prob_obj = sitk.ReadImage(prob_name)
@@ -67,17 +67,18 @@ def test_max_flow3d():
     lamda = 10.0
     sigma = 5.0
     param = (lamda, sigma)
-    lab = max_flow3d.max_flow3d(img_data, fP, bP, param)
+    lab = maxflow.maxflow3d(img_data, fP, bP, param)
     lab_obj = sitk.GetImageFromArray(lab)
     lab_obj.CopyInformation(img_obj)
     sitk.WriteImage(lab_obj, save_name)
+    print('the segmentation has been saved to {0:}'.format(save_name))
 
 def test_interactive_max_flow3d():
     img_name   = "../data/atp.nii.gz"
     prob_name  = "../data/prob.nii.gz"
     seed_name  = "../data/scrb.nii.gz"
     save_name  = "../data/seg_interact.nii.gz"
-    img_obj = sitk.ReadImage(img_name)
+    img_obj  = sitk.ReadImage(img_name)
     img_data = sitk.GetArrayFromImage(img_obj)
     img_data = np.asarray(img_data, np.float32)
     prob_obj = sitk.ReadImage(prob_name)
@@ -95,10 +96,11 @@ def test_interactive_max_flow3d():
     lamda = 20.0
     sigma = 15.0
     param = (lamda, sigma)
-    lab = max_flow3d.interactive_max_flow3d(img_data, fP, bP, seed_data, param)
+    lab = maxflow.interactive_maxflow3d(img_data, fP, bP, seed_data, param)
     lab_obj = sitk.GetImageFromArray(lab)
     lab_obj.CopyInformation(img_obj)
     sitk.WriteImage(lab_obj, save_name)
+    print('the segmentation has been saved to {0:}'.format(save_name))
 
 if __name__ == '__main__':
     print("example list")
@@ -109,11 +111,11 @@ if __name__ == '__main__':
     print("please enter the index of an example:")
     method = input()
     if(method == '0'):
-        test_max_flow()
+        demo_maxflow()
     elif(method == '1'):
-        test_interactive_max_flow()
+        demo_interactive_maxflow()
     elif(method == '2'):
-        test_max_flow3d()
+        demo_maxflow3d()
     elif(method == '3'):
         test_interactive_max_flow3d()
     else:

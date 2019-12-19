@@ -1,4 +1,4 @@
-#include "dense_crf3d_util.h"
+#include "densecrf3d_util.h"
 #include <iostream>
 using namespace std;
 

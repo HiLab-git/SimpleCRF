@@ -1,7 +1,7 @@
 #include <Python.h>
 #include "numpy/arrayobject.h"
 #include "densecrf.h"
-#include "dense_crf3d_util.h"
+#include "densecrf3d_util.h"
 #include <iostream>
 //#define DEBUG 
 using namespace std;
@@ -158,6 +158,6 @@ dense_crf_wrapper(PyObject *self, PyObject *args)
 }
 
 static PyMethodDef Methods[] = {
-    {"dense_crf3d",  dense_crf_wrapper, METH_VARARGS, "dense crf 3d"},
+    {"densecrf3d",  dense_crf_wrapper, METH_VARARGS, "3D dense CRF"},
     {NULL, NULL, 0, NULL}
 };

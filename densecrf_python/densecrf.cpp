@@ -1,16 +1,14 @@
 #include <Python.h>
 #include "numpy/arrayobject.h"
-#include "dense_crf_core.h"
-//#include <cstdio>
-//#include <stdio.h>
-//#include <cmath>
+#include "densecrf.h"
+#include "densecrf_core.h"
 #include <iostream>
 using namespace std;
 
 // example to use numpy object: http://blog.debao.me/2013/04/my-first-c-extension-to-numpy/
 // write a c extension ot Numpy: http://folk.uio.no/hpl/scripting/doc/python/NumPy/Numeric/numpy-13.html
 static PyObject *
-dense_crf_wrapper(PyObject *self, PyObject *args)
+densecrf_wrapper(PyObject *self, PyObject *args)
 {
     PyObject *I=NULL, *fP=NULL, *param=NULL;
     PyArrayObject *arr_I=NULL, *arr_fP=NULL;
@@ -59,14 +57,9 @@ dense_crf_wrapper(PyObject *self, PyObject *args)
 //    return Py_BuildValue("i", 10);
 }
 
+
 static PyMethodDef Methods[] = {
-    {"dense_crf",  dense_crf_wrapper, METH_VARARGS, "computing dense crf"},
+    {"densecrf",    densecrf_wrapper, METH_VARARGS, "computing 2D dense CRF"},
     {NULL, NULL, 0, NULL}
 };
 
-// for python 2
-//PyMODINIT_FUNC
-//initdense_crf(void) {
-//    (void) Py_InitModule("dense_crf", Methods);
-//    import_array();
-//}
