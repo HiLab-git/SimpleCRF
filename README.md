@@ -32,14 +32,21 @@ Some demos of using this package are:
 * `examples/demo_densecrf3d.py`: using 3D dense CRF for 3D multi-modal image segmentation.
 
 # Modules
-* `maxflow` has four functions as follows. Note that the current version only support binary segmentation.
+1, `maxflow` has four functions as follows. Note that the current version only supports binary segmentation.
 
-** maxflow.maxflow2d() for 2D automatic segmentation.
+* maxflow.maxflow2d() for 2D automatic segmentation.
 
-** maxflow.interactive_maxflow2d() for 2D interactive segmentation.
+* maxflow.interactive_maxflow2d() for 2D interactive segmentation.
 
-** maxflow.maxflow3d() for 3D automatic segmentation.
+* maxflow.maxflow3d() for 3D automatic segmentation.
 
-** maxflow.interactive_maxflow3d() for 3D interactive segmentation.
+* maxflow.interactive_maxflow3d() for 3D interactive segmentation.
 
+2, `denseCRF` has the following function. It can deal with multi-class segmentation, and only supports RGB images.
+
+* denseCRF.densecrf() for 2D automatic segmentation.
+
+2, `denseCRF3D` has the following function. It can deal with multi-class segmentation, and the input channel number can be 1-5.
+
+* denseCRF3D.densecrf3d() for 3D automatic segmentation.
 
