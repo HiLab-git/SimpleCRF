@@ -1,30 +1,29 @@
 
 #include "densecrf_core.h"
 
-MatrixXf computeUnary( const float *prob, int W, int H){
-    const float u_energy = -log( 1.0 / 2 );
-    MatrixXf r(2, W*H );
-    r.fill(u_energy);
-    //printf("%d %d %d \n",im[0],im[1],im[2]);
-    for( int k=0; k<W*H; k++ ){
-        // Set the energy
-        float p = prob[k];
-        if(p<0.01)p=0.01;
-        if(p>0.99)p=0.99;
-        r(0,k) = -log(1.0-p);
-        r(1,k) = -log(p);
+
+MatrixXf computeUnary( const float *prob, int H, int W, int C){
+    MatrixXf r(C, H*W );
+    for(int k=0; k<H*W; k++ )
+    {
+        for(int c = 0; c < C; c++)
+        {
+            // Set the energy
+            float p = prob[k*C + c];
+            if(p<0.01)p=0.01;
+            if(p>0.99)p=0.99;
+            r(c,k) = -log(p);
+        }
     }
     return r;
 }
 
-VectorXs dense_crf_inference(const unsigned char * img, const float * prob, int W, int H, CRFParam param)
+VectorXs dense_crf_inference(const unsigned char * img, const float * prob, int H, int W, int C,  CRFParam param)
 {
-    // Number of labels
-    const int M = 2;
-    MatrixXf unary = computeUnary(prob,W, H);
+    MatrixXf unary = computeUnary(prob, H, W, C);
 
     // Setup the CRF model
-    DenseCRF2D crf(W, H, M);
+    DenseCRF2D crf(W, H, C);
     // Specify the unary potential as an array of size W*H*(#classes)
     // packing order: x0y0l0 x0y0l1 x0y0l2 .. x1y0l0 x1y0l1 ...
     crf.setUnaryEnergy( unary );
@@ -51,9 +50,5 @@ VectorXs dense_crf_inference(const unsigned char * img, const float * prob, int 
     // 	}
     // 	VectorXs map = crf.currentMap(Q);
     VectorXs map = crf.map(param.iter);
-
     return map;
-    
-//    *res = colorize(map, W,H);
-//    return 0;
 }

@@ -14,4 +14,5 @@ struct CRFParam{
     double gamma=0;
     int iter=0;
 };
-VectorXs dense_crf_inference(const unsigned char * img, const float * prob, int W, int H, CRFParam param);
+// VectorXs dense_crf_inference(const unsigned char * img, const float * prob, int W, int H, CRFParam param);
+VectorXs dense_crf_inference(const unsigned char * img, const float * prob, int H, int W, int C, CRFParam param);

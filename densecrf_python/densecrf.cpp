@@ -39,8 +39,9 @@ densecrf_wrapper(PyObject *self, PyObject *args)
     crf_param.gamma = PyFloat_AsDouble(PyTuple_GET_ITEM(param, 4));
     crf_param.iter  = int(PyFloat_AsDouble(PyTuple_GET_ITEM(param, 5)));
 
-    VectorXs map = dense_crf_inference((const unsigned char *)arr_I->data, (const float *)arr_fP->data, shape_fP[1], shape_fP[0], crf_param);
- 
+    VectorXs map = dense_crf_inference((const unsigned char *)arr_I->data, (const float *)arr_fP->data, 
+                    shape_fP[0], shape_fP[1], shape_fP[2], crf_param);
+
     int outshape[2];
     outshape[0]=shape_fP[0];
     outshape[1]=shape_fP[1];
@@ -54,7 +55,6 @@ densecrf_wrapper(PyObject *self, PyObject *args)
     Py_DECREF(arr_fP);
     Py_INCREF(labels);
     return PyArray_Return(labels);
-//    return Py_BuildValue("i", 10);
 }
 
 

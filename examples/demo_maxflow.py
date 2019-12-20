@@ -6,53 +6,48 @@ from PIL import Image
 import matplotlib.pyplot as plt
 
 def demo_maxflow():
-    I = Image.open('../data/img2d.png')
+    I = Image.open('../data/brain.png')
     Iq = np.asarray(I.convert('L'), np.float32)
-    P = np.asarray(Image.open('../data/prob2d.png'), np.float32)
+    P = np.asarray(Image.open('../data/brain_mask.png').convert('L'), np.float32) / 255
 
-    fP = P/255.0
-    bP = 1.0-fP
-    lamda = 10.0  
-    sigma = 5.0
+    fP = 0.5 + (P - 0.5) * 0.8
+    bP = 1.0 - fP
+    lamda = 20.0  
+    sigma = 10.0
     param = (lamda, sigma)
     lab = maxflow.maxflow2d(Iq, fP, bP, param)
 
-    plt.subplot(1,4,1); plt.axis('off'); plt.imshow(I);  plt.title('input image')
-    plt.subplot(1,4,2); plt.axis('off'); plt.imshow(fP);   plt.title('probability map')
-    plt.subplot(1,4,3); plt.axis('off'); plt.imshow(fP > 0.5); plt.title('initial \n segmentation')
-    plt.subplot(1,4,4); plt.axis('off'); plt.imshow(lab); plt.title('CRF result')
+    plt.subplot(1,3,1); plt.axis('off'); plt.imshow(I);  plt.title('input image')
+    plt.subplot(1,3,2); plt.axis('off'); plt.imshow(fP);   plt.title('initial \n segmentation')
+    plt.subplot(1,3,3); plt.axis('off'); plt.imshow(lab); plt.title('CRF result')
     plt.show()
 
 def demo_interactive_maxflow():
-    I = Image.open('../data/img2d.png')
+    I = Image.open('../data/brain.png')
     Iq = np.asarray(I.convert('L'), np.float32)
-    P = np.asarray(Image.open('../data/prob2d.png'), np.float32)
-    
-    fP = P/255.0
-    bP = 1.0-fP
-    S = np.zeros_like(fP, np.uint8)
-    seed1_x = 27
-    seed1_y = 32
-    seed2_x = 40
-    seed2_y = 52
-    S[seed1_y - 2 : seed1_y + 2, seed1_x - 2 : seed1_x + 2] = 255
-    S[seed2_y - 2 : seed2_y + 2, seed2_x - 2 : seed2_x + 2] = 127
+    P = np.asarray(Image.open('../data/brain_mask.png').convert('L'), np.float32) / 255
 
-    lamda = 10.0
-    sigma = 5.0
+    fP = 0.5 + (P - 0.5) * 0.8
+    bP = 1.0 - fP
+
+    S = np.asarray(Image.open('../data/brain_scrb.png').convert('L'))
+    scrb = np.zeros_like(S)
+    scrb[S==170] = 127
+    scrb[S==255] = 255
+
+    lamda = 30.0  
+    sigma = 8.0
     param = (lamda, sigma)
-    lab   = maxflow.interactive_maxflow2d(Iq, fP, bP, S,param)
-    plt.subplot(1,3,1); plt.axis('off'); plt.imshow(Iq);  plt.title('input image')
-    plt.subplot(1,3,2); plt.axis('off'); plt.imshow(P); 
-    plt.plot([seed1_x], [seed1_y], 'bo', markersize = 2)
-    plt.plot([seed2_x], [seed2_y], 'ro', markersize = 2)
-    plt.title('probability map and \n user interaction')
+    lab = maxflow.interactive_maxflow2d(Iq, fP, bP, scrb, param)
+
+    plt.subplot(1,3,1); plt.axis('off'); plt.imshow(I);  plt.title('input image')
+    plt.subplot(1,3,2); plt.axis('off'); plt.imshow(fP);   plt.title('initial \n segmentation')
     plt.subplot(1,3,3); plt.axis('off'); plt.imshow(lab); plt.title('CRF result')
     plt.show()
 
 def demo_maxflow3d():
-    img_name   = "../data/atp.nii.gz"
-    prob_name  = "../data/prob.nii.gz"
+    img_name   = "../data/2013_12_1_img.nii.gz"
+    prob_name  = "../data/2013_12_1_init.nii.gz"
     save_name  = "../data/seg_auto.nii.gz"
     img_obj  = sitk.ReadImage(img_name)
     img_data = sitk.GetArrayFromImage(img_obj)
@@ -61,11 +56,11 @@ def demo_maxflow3d():
     prob_data = sitk.GetArrayFromImage(prob_obj)
     prob_data = np.asarray(prob_data, np.float32)
 
-    fP = prob_data
+    fP = 0.5 + (prob_data - 0.5) * 0.8
     bP = 1.0-fP
 
     lamda = 10.0
-    sigma = 5.0
+    sigma = 15.0
     param = (lamda, sigma)
     lab = maxflow.maxflow3d(img_data, fP, bP, param)
     lab_obj = sitk.GetImageFromArray(lab)
@@ -74,9 +69,9 @@ def demo_maxflow3d():
     print('the segmentation has been saved to {0:}'.format(save_name))
 
 def test_interactive_max_flow3d():
-    img_name   = "../data/atp.nii.gz"
-    prob_name  = "../data/prob.nii.gz"
-    seed_name  = "../data/scrb.nii.gz"
+    img_name   = "../data/2013_12_1_img.nii.gz"
+    prob_name  = "../data/2013_12_1_init.nii.gz"
+    seed_name  = "../data/2013_12_1_scrb.nii.gz"
     save_name  = "../data/seg_interact.nii.gz"
     img_obj  = sitk.ReadImage(img_name)
     img_data = sitk.GetArrayFromImage(img_obj)
@@ -84,16 +79,17 @@ def test_interactive_max_flow3d():
     prob_obj = sitk.ReadImage(prob_name)
     prob_data = sitk.GetArrayFromImage(prob_obj)
     prob_data = np.asarray(prob_data, np.float32)
+
+    fP = 0.5 + (prob_data - 0.5) * 0.8
+    bP = 1.0-fP
+
     seed_obj  = sitk.ReadImage(seed_name)
     seed_data = sitk.GetArrayFromImage(seed_obj)
     seed_data[seed_data == 1] = 127
     seed_data[seed_data == 2] = 255
     seed_data = np.asarray(seed_data, np.uint8)
 
-    fP = prob_data
-    bP = 1.0-fP
-
-    lamda = 20.0
+    lamda = 10.0
     sigma = 15.0
     param = (lamda, sigma)
     lab = maxflow.interactive_maxflow3d(img_data, fP, bP, seed_data, param)
