@@ -14,14 +14,14 @@ Matlab and Python wrap of Conditional Random Field (CRF) and fully connected (de
 ### Dependency
 This repository depends on the following packages:
 
-* Maxflow  https://vision.cs.uwaterloo.ca/code/ 
+* [`Maxflow`](https://vision.cs.uwaterloo.ca/code/) 
 
-* DenceCRF http://graphics.stanford.edu/projects/drf/
+* [`DenceCRF`](http://graphics.stanford.edu/projects/drf/)
 
-* 3D Dense CRF https://github.com/deepmedic/dense3dCrf
+* ['3D Dense CRF`](https://github.com/deepmedic/dense3dCrf)
 
 ### Installation
-1. Install with pip: [`pip install SimpleCRF`][https://github.com/taigw/SimpleCRF]
+1. Install by: [`pip install SimpleCRF`](https://github.com/taigw/SimpleCRF)
 
 2. Alternatively, you can compile the source files by the following two steps:
 ```bash
