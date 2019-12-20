@@ -16,11 +16,11 @@ Pushmeet Kohli and Philip H.S. Torr. "Efficiently solving dynamic markov random 
 # Dependency
 This repository depends on the following packages:
 
-* Maxflow  http://www.cs.ucl.ac.uk/staff/V.Kolmogorov/software.html 
+* Maxflow  https://vision.cs.uwaterloo.ca/code/ 
 
 * DenceCRF http://graphics.stanford.edu/projects/drf/
 
-* 3D Fully Connected CRF https://github.com/Kamnitsask/dense3dCrf
+* 3D Dense CRF https://github.com/deepmedic/dense3dCrf
 
 # Examples
 Some demos of using this package are:
@@ -30,3 +30,16 @@ Some demos of using this package are:
 * `examples/demo_densecrf.py`: using dense CRF for 2D gray scale and RGB image segmentation.
 
 * `examples/demo_densecrf3d.py`: using 3D dense CRF for 3D multi-modal image segmentation.
+
+# Modules
+* `maxflow` has four functions as follows. Note that the current version only support binary segmentation.
+
+** maxflow.maxflow2d() for 2D automatic segmentation.
+
+** maxflow.interactive_maxflow2d() for 2D interactive segmentation.
+
+** maxflow.maxflow3d() for 3D automatic segmentation.
+
+** maxflow.interactive_maxflow3d() for 3D interactive segmentation.
+
+
