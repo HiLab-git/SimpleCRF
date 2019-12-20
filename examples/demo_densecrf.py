@@ -3,6 +3,26 @@ import numpy as np
 from PIL import Image
 import matplotlib.pyplot as plt
 
+def densecrf(I, P, param):
+    """
+    input parameters:
+        I    : a numpy array of shape [H, W, C], where C should be 3.
+               type of I should be np.uint8, and the values are in [0, 255]
+        P    : a probability map of shape [H, W, L], where L is the number of classes
+               type of P should be np.float32
+        param: a tuple giving parameters of CRF (w1, alpha, beta, w2, gamma, it), where
+                w1    :   weight of bilateral term, e.g. 10.0
+                alpha :   spatial distance std, e.g., 80
+                beta  :   rgb value std, e.g., 15
+                w2    :   weight of spatial term, e.g., 3.0
+                gamma :   spatial distance std for spatial term, e.g., 3
+                it    :   iteration number, e.g., 5
+    output parameters:
+        out  : a numpy array of shape [H, W], where pixel values represent class indices. 
+    """
+    out = denseCRF.densecrf(I, P, param) 
+    return out   
+
 def convert_label_to_probability_map(label, color_list):
     [H, W, _] = label.shape
     C = len(color_list)
@@ -50,7 +70,7 @@ def demo_densecrf1():
     gamma = 3     # spatial std
     it    = 5.0   # iteration
     param = (w1, alpha, beta, w2, gamma, it)
-    lab = denseCRF.densecrf(Iq, prob, param)
+    lab = densecrf(Iq, prob, param)
     lab = Image.fromarray(lab*255)
     plt.subplot(1,3,1); plt.axis('off'); plt.imshow(I); plt.title('input image')
     plt.subplot(1,3,2); plt.axis('off'); plt.imshow(L); plt.title('initial label')
@@ -76,7 +96,7 @@ def demo_densecrf2():
     gamma = 3     # spatial std
     it    = 5.0   # iteration
     param = (w1, alpha, beta, w2, gamma, it)
-    lab = denseCRF.densecrf(Iq, prob, param)
+    lab = densecrf(Iq, prob, param)
     lab = colorize_label_map(lab, color_list)
     lab = Image.fromarray(lab)
     plt.subplot(1,3,1); plt.axis('off'); plt.imshow(I); plt.title('input image')
@@ -90,6 +110,7 @@ if __name__ == "__main__":
     print(" 1 -- Dense CRF example for a multi-class segmentation")
     print("please enter the index of an example:")
     method = input()
+    method = "{0:}".format(method)
     if(method == '0'):
         demo_densecrf1()
     elif(method == '1'):

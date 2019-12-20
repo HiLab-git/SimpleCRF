@@ -60,23 +60,28 @@ module3 = Extension(module_name3,
 description = 'An open-source toolkit for conditional random field (CRF) and dense CRF'
 
 # Get the long description
-with open('README.md', encoding='utf-8') as f:
-    long_description = f.read()
+if(sys.version[0] == '2'):
+    import io
+    with io.open('README.md', 'r', encoding='utf-8') as f:
+        long_description = f.read()
+else:
+    with open('README.md', encoding='utf-8') as f:
+        long_description = f.read()
 
 
 setup(name=package_name,
-      version = "0.0.1",
+      version = "0.0.5",
       author  ='Guotai Wang',
       author_email = 'wguotai@gmail.com',
       description  = description,
       long_description = long_description,
       long_description_content_type = 'text/markdown',
       url      = 'https://github.com/taigw/SimpleCRF',
-      license  = 'MIT',
+      license  = 'BSD',
       packages = setuptools.find_packages(),
       ext_modules = [module1, module2, module3],
       classifiers=[
-            'License :: OSI Approved :: MIT License',
+            'License :: OSI Approved :: BSD License',
             'Programming Language :: Python',
             'Programming Language :: Python :: 2',
             'Programming Language :: Python :: 3',

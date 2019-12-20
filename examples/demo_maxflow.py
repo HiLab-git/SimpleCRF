@@ -106,6 +106,7 @@ if __name__ == '__main__':
     print(" 3 -- 3D max flow with interactions")
     print("please enter the index of an example:")
     method = input()
+    method = "{0:}".format(method)
     if(method == '0'):
         demo_maxflow()
     elif(method == '1'):
