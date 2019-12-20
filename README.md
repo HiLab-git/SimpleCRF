@@ -13,12 +13,9 @@ Matlab and Python wrap of Conditional Random Field (CRF) and fully connected (de
 
 ### Dependency
 This repository depends on the following packages:
-
-* [`Maxflow`](https://vision.cs.uwaterloo.ca/code/) 
-
-* [`DenceCRF`](http://graphics.stanford.edu/projects/drf/)
-
-* ['3D Dense CRF`](https://github.com/deepmedic/dense3dCrf)
+[`Maxflow`](https://vision.cs.uwaterloo.ca/code/),
+[`DenceCRF`](http://graphics.stanford.edu/projects/drf/) and 
+[`3D Dense CRF`](https://github.com/deepmedic/dense3dCrf)
 
 ### Installation
 1. Install by: [`pip install SimpleCRF`](https://github.com/taigw/SimpleCRF)
@@ -56,6 +53,5 @@ Some demos of using this package are:
 3. `denseCRF3D` has the following function. It can deal with multi-class segmentation. The input channel number can be 1-5.
 
 * `denseCRF3D.densecrf3d()` for 3D automatic segmentation.
-
 
 
