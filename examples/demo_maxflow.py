@@ -145,7 +145,6 @@ def demo_maxflow3d():
     lamda = 10.0
     sigma = 15.0
     param = (lamda, sigma)
-    print('image data shape', img_data.shape)
     lab = maxflow3d(img_data, Prob, param)
     lab_obj = sitk.GetImageFromArray(lab)
     lab_obj.CopyInformation(img_obj)

@@ -71,13 +71,13 @@ else:
 
 
 setup(name=package_name,
-      version = "0.0.5",
+      version = "0.0.6",
       author  ='Guotai Wang',
       author_email = 'wguotai@gmail.com',
       description  = description,
       long_description = long_description,
       long_description_content_type = 'text/markdown',
-      url      = 'https://github.com/taigw/SimpleCRF',
+      url      = 'https://github.com/HiLab-git/SimpleCRF',
       license  = 'BSD',
       packages = setuptools.find_packages(),
       ext_modules = [module1, module2, module3],
