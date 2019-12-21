@@ -317,9 +317,3 @@ static PyMethodDef Methods[] = {
     {"interactive_max_flow3d",  interactive_max_flow3d_wrapper, METH_VARARGS, "computing max flow 3d"},
     {NULL, NULL, 0, NULL}
 };
-
-//PyMODINIT_FUNC
-//initmax_flow3d(void) {
-//    (void) Py_InitModule("max_flow3d", Methods);
-//    import_array();
-//}

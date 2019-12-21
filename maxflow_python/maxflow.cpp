@@ -1,11 +1,14 @@
 #include <Python.h>
 #include "numpy/arrayobject.h"
 #include "maxflow-v3.0/graph.h"
+#include "util.h"
 #include <iostream>
 using namespace std;
 
 // example to use numpy object: http://blog.debao.me/2013/04/my-first-c-extension-to-numpy/
 // write a c extension ot Numpy: http://folk.uio.no/hpl/scripting/doc/python/NumPy/Numeric/numpy-13.html
+
+
 static PyObject *
 maxflow_wrapper(PyObject *self, PyObject *args)
 {
@@ -25,25 +28,32 @@ maxflow_wrapper(PyObject *self, PyObject *args)
 
     
     /*vv* code that makes use of arguments *vv*/
-    
-    int nd = PyArray_NDIM(arr_I);   //number of dimensions
-    npy_intp * shape = PyArray_DIMS(arr_I);  // npy_intp array of length nd showing length in each dim.
+    int nd = PyArray_NDIM(arr_I);               // number of dimensions
+    npy_intp * shape = PyArray_DIMS(arr_I);     // npy_intp array of length nd showing length in each dim.
     npy_intp * shape_fP = PyArray_DIMS(arr_fP);
     npy_intp * shape_bP = PyArray_DIMS(arr_bP);
+
+    cout<<"input shape ";
     for(int i=0; i<nd; i++)
     {
-        if(shape[i] !=shape_fP[i] || shape[i]!=shape_bP[i])
+        cout<<shape[i]<<" ";
+        if(i < 2 && (shape[i] !=shape_fP[i] || shape[i]!=shape_bP[i]))
         {
             cout<<"input shape does not match"<<endl;
             return NULL;
         }
+    }
+    cout<<std::endl;
+    int channel = 1;
+    if(nd == 3){
+        channel = shape[2];
     }
 
     double lambda = PyFloat_AsDouble(PyTuple_GET_ITEM(param, 0));
     double sigma  = PyFloat_AsDouble(PyTuple_GET_ITEM(param, 1));
     
     typedef Graph<float, float, float> GraphType;
-//    /*estimated # of nodes*/ /*estimated # of edges*/
+    /*estimated # of nodes*/ /*estimated # of edges*/
     GraphType * g = new GraphType(shape[0]*shape[1], 2*shape[0]*shape[1]);
     g->add_node(shape[0]*shape[1]);
     float max_weight = -100000;
@@ -51,7 +61,8 @@ maxflow_wrapper(PyObject *self, PyObject *args)
     {
         for(int y=0; y<shape[1];y++)
         {
-            float pValue = *(float *)(arr_I->data + x*arr_I->strides[0] + y*arr_I->strides[1]);
+            std::vector<float> pValue = get_pixel_vector((float *)arr_I->data, 
+                shape[0], shape[1], channel, x, y);
             int uperPointx=x;
             int uperPointy=y-1;
             int LeftPointx=x-1;
@@ -59,8 +70,10 @@ maxflow_wrapper(PyObject *self, PyObject *args)
             float n_weight=0;
             if(uperPointy>=0 && uperPointy<shape[1])
             {
-                float qValue=*(float *)(arr_I->data + uperPointx*arr_I->strides[0] + uperPointy*arr_I->strides[1]);
-                n_weight=lambda*exp(-(pValue-qValue)*(pValue-qValue)/(2*sigma*sigma));
+                std::vector<float> qValue = get_pixel_vector((float *)arr_I->data, 
+                    shape[0], shape[1], channel, uperPointx, uperPointy);
+                float l2dis = get_l2_distance(pValue, qValue);
+                n_weight=lambda*exp(-l2dis * l2dis/(2*sigma*sigma));
                 int pIndex=x*shape[1]+y;
                 int qIndex=uperPointx*shape[1]+uperPointy;
                 
@@ -68,8 +81,10 @@ maxflow_wrapper(PyObject *self, PyObject *args)
             }
             if(LeftPointx>=0 && LeftPointx<shape[0])
             {
-                float qValue=*(float *)(arr_I->data + LeftPointx*arr_I->strides[0] + LeftPointy*arr_I->strides[1]);
-                n_weight=lambda*exp(-(pValue-qValue)*(pValue-qValue)/(2*sigma*sigma));
+                std::vector<float> qValue = get_pixel_vector((float *)arr_I->data, 
+                    shape[0], shape[1], channel, LeftPointx, LeftPointy);
+                float l2dis = get_l2_distance(pValue, qValue);
+                n_weight=lambda*exp(-l2dis * l2dis/(2*sigma*sigma));
                 int pIndex=x*shape[1]+y;
                 int qIndex=LeftPointx*shape[1]+LeftPointy;
                 g->add_edge(qIndex,pIndex,n_weight,n_weight);
@@ -95,7 +110,6 @@ maxflow_wrapper(PyObject *self, PyObject *args)
     }
     double flow;
     flow = g->maxflow();
-//    printf("max flow: %f\n",flow);
 
     int outshape[2];
     outshape[0]=shape[0];
@@ -139,29 +153,32 @@ interactive_maxflow_wrapper(PyObject *self, PyObject *args)
     if (arr_Seed == NULL) return NULL;
     
     /*vv* code that makes use of arguments *vv*/
-    
-    int nd = PyArray_NDIM(arr_I);   //number of dimensions
-    npy_intp * shape = PyArray_DIMS(arr_I);  // npy_intp array of length nd showing length in each dim.
+    int nd = PyArray_NDIM(arr_I);              // number of dimensions
+    npy_intp * shape = PyArray_DIMS(arr_I);    // npy_intp array of length nd showing length in each dim.
     npy_intp * shape_fP = PyArray_DIMS(arr_fP);
     npy_intp * shape_bP = PyArray_DIMS(arr_bP);
     npy_intp * shape_seed = PyArray_DIMS(arr_Seed);
-    //    cout<<"crf input shape: ";
+    cout<<"input shape ";
     for(int i=0; i<nd; i++)
     {
-        //        cout<<shape[i]<<" ";
-        if(shape[i] !=shape_fP[i] || shape[i]!=shape_bP[i] || shape[i]!=shape_seed[i])
+        cout<<shape[i]<<" ";
+        if(i < 2 && (shape[i] !=shape_fP[i] || shape[i]!=shape_bP[i] || shape[i]!=shape_seed[i]))
         {
             cout<<"input shape does not match"<<endl;
             return NULL;
         }
     }
-
+    cout<<std::endl;
+    int channel = 1;
+    if(nd == 3){
+        channel = shape[2];
+    }
+   
     double lambda = PyFloat_AsDouble(PyTuple_GET_ITEM(param, 0));
     double sigma  = PyFloat_AsDouble(PyTuple_GET_ITEM(param, 1));
-    //    cout<<"lambda "<<lambda<<", sigma "<<sigma<<endl;
     
     typedef Graph<float, float, float> GraphType;
-    //    /*estimated # of nodes*/ /*estimated # of edges*/
+    /*estimated # of nodes*/ /*estimated # of edges*/
     GraphType * g = new GraphType(shape[0]*shape[1], 2*shape[0]*shape[1]);
     g->add_node(shape[0]*shape[1]);
     float max_weight = -100000;
@@ -169,7 +186,8 @@ interactive_maxflow_wrapper(PyObject *self, PyObject *args)
     {
         for(int y=0; y<shape[1];y++)
         {
-            float pValue = *(float *)(arr_I->data + x*arr_I->strides[0] + y*arr_I->strides[1]);
+            std::vector<float> pValue = get_pixel_vector((float *)arr_I->data, 
+                shape[0], shape[1], channel, x, y);
             int uperPointx=x;
             int uperPointy=y-1;
             int LeftPointx=x-1;
@@ -177,8 +195,10 @@ interactive_maxflow_wrapper(PyObject *self, PyObject *args)
             float n_weight=0;
             if(uperPointy>=0 && uperPointy<shape[1])
             {
-                float qValue=*(float *)(arr_I->data + uperPointx*arr_I->strides[0] + uperPointy*arr_I->strides[1]);
-                n_weight=lambda*exp(-(pValue-qValue)*(pValue-qValue)/(2*sigma*sigma));
+                std::vector<float> qValue = get_pixel_vector((float *)arr_I->data, 
+                    shape[0], shape[1], channel, uperPointx, uperPointy);
+                float l2dis = get_l2_distance(pValue, qValue);
+                n_weight=lambda*exp(-l2dis * l2dis/(2*sigma*sigma));
                 int pIndex=x*shape[1]+y;
                 int qIndex=uperPointx*shape[1]+uperPointy;
                 
@@ -190,8 +210,10 @@ interactive_maxflow_wrapper(PyObject *self, PyObject *args)
             }
             if(LeftPointx>=0 && LeftPointx<shape[0])
             {
-                float qValue=*(float *)(arr_I->data + LeftPointx*arr_I->strides[0] + LeftPointy*arr_I->strides[1]);
-                n_weight=lambda*exp(-(pValue-qValue)*(pValue-qValue)/(2*sigma*sigma));
+                std::vector<float> qValue = get_pixel_vector((float *)arr_I->data, 
+                    shape[0], shape[1], channel, LeftPointx, LeftPointy);
+                float l2dis = get_l2_distance(pValue, qValue);
+                n_weight=lambda*exp(-l2dis * l2dis/(2*sigma*sigma));
                 int pIndex=x*shape[1]+y;
                 int qIndex=LeftPointx*shape[1]+LeftPointy;
                 g->add_edge(qIndex,pIndex,n_weight,n_weight);
@@ -240,7 +262,6 @@ interactive_maxflow_wrapper(PyObject *self, PyObject *args)
     }
     double flow;
     flow = g->maxflow();
-    //    printf("max flow: %f\n",flow);
     
     int outshape[2];
     outshape[0]=shape[0];
@@ -283,27 +304,31 @@ maxflow3d_wrapper(PyObject *self, PyObject *args)
     
     /*vv* code that makes use of arguments *vv*/
     
-    int nd = PyArray_NDIM(arr_I);   //number of dimensions
-    npy_intp * shape = PyArray_DIMS(arr_I);  // npy_intp array of length nd showing length in each dim.
+    int nd = PyArray_NDIM(arr_I);              // number of dimensions
+    npy_intp * shape = PyArray_DIMS(arr_I);    // npy_intp array of length nd showing length in each dim.
     npy_intp * shape_fP = PyArray_DIMS(arr_fP);
     npy_intp * shape_bP = PyArray_DIMS(arr_bP);
-    //cout<<"crf input shape: ";
+    cout<<"input shape ";
     for(int i=0; i<nd; i++)
     {
-        //cout<<shape[i]<<" ";
-        if(shape[i] !=shape_fP[i] || shape[i]!=shape_bP[i])
+        cout<<shape[i]<<" ";
+        if(i < 3 && (shape[i] !=shape_fP[i] || shape[i]!=shape_bP[i]))
         {
             cout<<"input shape does not match"<<endl;
             return NULL;
         }
     }
+    cout<<std::endl;
+    int channel = 1;
+    if(nd == 4){
+        channel = shape[3];
+    }
 
     double lambda = PyFloat_AsDouble(PyTuple_GET_ITEM(param, 0));
     double sigma  = PyFloat_AsDouble(PyTuple_GET_ITEM(param, 1));
-//    cout<<"lambda "<<lambda<<", sigma "<<sigma<<endl;
     
     typedef Graph<float, float, float> GraphType;
-//    /*estimated # of nodes*/ /*estimated # of edges*/
+    /*estimated # of nodes*/ /*estimated # of edges*/
     int count = shape[0]*shape[1]*shape[2];
     GraphType * g = new GraphType(count, 2*count);
     g->add_node(count);
@@ -314,7 +339,9 @@ maxflow3d_wrapper(PyObject *self, PyObject *args)
         {
             for(int z=0; z<shape[2]; z++)
             {
-                float pValue = *(float *)(arr_I->data + x*arr_I->strides[0] + y*arr_I->strides[1] + z*arr_I->strides[2]);
+                // float pValue = *(float *)(arr_I->data + x*arr_I->strides[0] + y*arr_I->strides[1] + z*arr_I->strides[2]);
+                std::vector<float> pValue = get_pixel_vector((float *)arr_I->data, 
+                    shape[0], shape[1], shape[2], channel, x, y, z);
                 int LeftPointx = x-1;
                 int LeftPointy = y;
                 int LeftPointz = z;
@@ -328,18 +355,26 @@ maxflow3d_wrapper(PyObject *self, PyObject *args)
                 int pIndex = x*shape[1]*shape[2] + y*shape[2] + z;
                 if(LeftPointx>=0 && LeftPointx<shape[0])
                 {
-                    float qValue=*(float *)(arr_I->data + LeftPointx*arr_I->strides[0] +
-                                            LeftPointy*arr_I->strides[1] + LeftPointz*arr_I->strides[2]);
-                    n_weight=lambda*exp(-(pValue-qValue)*(pValue-qValue)/(2*sigma*sigma));
+                    // float qValue=*(float *)(arr_I->data + LeftPointx*arr_I->strides[0] +
+                    //                         LeftPointy*arr_I->strides[1] + LeftPointz*arr_I->strides[2]);
+                    // n_weight=lambda*exp(-(pValue-qValue)*(pValue-qValue)/(2*sigma*sigma));
+                    std::vector<float> qValue = get_pixel_vector((float *)arr_I->data, 
+                        shape[0], shape[1], shape[2], channel, LeftPointx, LeftPointy, LeftPointz);
+                    float l2dis = get_l2_distance(pValue, qValue);
+                    n_weight=lambda*exp(-l2dis * l2dis/(2*sigma*sigma));
                     int qIndex = LeftPointx*shape[1]*shape[2] + LeftPointy*shape[2] + LeftPointz;
                     g->add_edge(qIndex,pIndex,n_weight,n_weight);
                     if(n_weight > max_weight) max_weight = n_weight;
                 }
                 if(uperPointy>=0 && uperPointy<shape[1])
                 {
-                    float qValue=*(float *)(arr_I->data + uperPointx*arr_I->strides[0] +
-                                            uperPointy*arr_I->strides[1] + uperPointz*arr_I->strides[2]);
-                    n_weight=lambda*exp(-(pValue-qValue)*(pValue-qValue)/(2*sigma*sigma));
+                    // float qValue=*(float *)(arr_I->data + uperPointx*arr_I->strides[0] +
+                    //                         uperPointy*arr_I->strides[1] + uperPointz*arr_I->strides[2]);
+                    // n_weight=lambda*exp(-(pValue-qValue)*(pValue-qValue)/(2*sigma*sigma));
+                    std::vector<float> qValue = get_pixel_vector((float *)arr_I->data, 
+                        shape[0], shape[1], shape[2], channel, uperPointx, uperPointy, uperPointz);
+                    float l2dis = get_l2_distance(pValue, qValue);
+                    n_weight=lambda*exp(-l2dis * l2dis/(2*sigma*sigma));
                     int qIndex = uperPointx*shape[1]*shape[2] + uperPointy*shape[2] + uperPointz;
                     g->add_edge(qIndex,pIndex,n_weight,n_weight);
                     if(n_weight > max_weight) max_weight = n_weight;
@@ -347,9 +382,13 @@ maxflow3d_wrapper(PyObject *self, PyObject *args)
                 }
                 if(topPointz>=0 && topPointz<shape[2])
                 {
-                    float qValue=*(float *)(arr_I->data + topPointx*arr_I->strides[0] +
-                                            topPointy*arr_I->strides[1] + topPointz*arr_I->strides[2]);
-                    n_weight=lambda*exp(-(pValue-qValue)*(pValue-qValue)/(2*sigma*sigma));
+                    // float qValue=*(float *)(arr_I->data + topPointx*arr_I->strides[0] +
+                    //                         topPointy*arr_I->strides[1] + topPointz*arr_I->strides[2]);
+                    // n_weight=lambda*exp(-(pValue-qValue)*(pValue-qValue)/(2*sigma*sigma));
+                    std::vector<float> qValue = get_pixel_vector((float *)arr_I->data, 
+                        shape[0], shape[1], shape[2], channel, topPointx, topPointy, topPointz);
+                    float l2dis = get_l2_distance(pValue, qValue);
+                    n_weight=lambda*exp(-l2dis * l2dis/(2*sigma*sigma));
                     int qIndex = topPointx*shape[1]*shape[2] + topPointy*shape[2] + topPointz;
                     g->add_edge(qIndex,pIndex,n_weight,n_weight);
                     if(n_weight > max_weight) max_weight = n_weight;
@@ -375,7 +414,6 @@ maxflow3d_wrapper(PyObject *self, PyObject *args)
     }
     double flow;
     flow = g->maxflow();
-//    printf("max flow: %f\n",flow);
 
     int outshape[3];
     outshape[0]=shape[0];
@@ -424,27 +462,32 @@ interactive_maxflow3d_wrapper(PyObject *self, PyObject *args)
     
     /*vv* code that makes use of arguments *vv*/
     
-    int nd = PyArray_NDIM(arr_I);   //number of dimensions
+    int nd = PyArray_NDIM(arr_I);            //number of dimensions
     npy_intp * shape = PyArray_DIMS(arr_I);  // npy_intp array of length nd showing length in each dim.
     npy_intp * shape_fP = PyArray_DIMS(arr_fP);
     npy_intp * shape_bP = PyArray_DIMS(arr_bP);
     npy_intp * shape_seed = PyArray_DIMS(arr_Seed);
-    //    cout<<"crf input shape: ";
+    cout<<"input shape ";
     for(int i=0; i<nd; i++)
     {
-        //        cout<<shape[i]<<" ";
-        if(shape[i] !=shape_fP[i] || shape[i]!=shape_bP[i] || shape[i]!=shape_seed[i])
+        cout<<shape[i]<<" ";
+        if(i < 3 && (shape[i] !=shape_fP[i] || shape[i]!=shape_bP[i] || shape[i]!=shape_seed[i]))
         {
             cout<<"input shape does not match"<<endl;
             return NULL;
         }
+    }
+    cout<<std::endl;
+    int channel = 1;
+    if(nd == 4){
+        channel = shape[3];
     }
 
     double lambda = PyFloat_AsDouble(PyTuple_GET_ITEM(param, 0));
     double sigma  = PyFloat_AsDouble(PyTuple_GET_ITEM(param, 1));
     
     typedef Graph<float, float, float> GraphType;
-    //    /*estimated # of nodes*/ /*estimated # of edges*/
+    /*estimated # of nodes*/ /*estimated # of edges*/
     int count = shape[0] * shape[1] * shape[2];
     GraphType * g = new GraphType(count, 2*count);
     g->add_node(count);
@@ -455,7 +498,9 @@ interactive_maxflow3d_wrapper(PyObject *self, PyObject *args)
         {
             for(int z = 0; z<shape[2]; z++)
             {
-                float pValue = *(float *)(arr_I->data + x*arr_I->strides[0] + y*arr_I->strides[1] + z*arr_I->strides[2]);
+                // float pValue = *(float *)(arr_I->data + x*arr_I->strides[0] + y*arr_I->strides[1] + z*arr_I->strides[2]);
+                std::vector<float> pValue = get_pixel_vector((float *)arr_I->data, 
+                    shape[0], shape[1], shape[2], channel, x, y, z);
                 int uperPointx = x;
                 int uperPointy = y - 1;
                 int uperPointz = z;
@@ -471,18 +516,26 @@ interactive_maxflow3d_wrapper(PyObject *self, PyObject *args)
                 int pIndex = x*shape[1]*shape[2] + y*shape[2] + z;
                 if(LeftPointx>=0 && LeftPointx<shape[0])
                 {
-                    float qValue=*(float *)(arr_I->data + LeftPointx*arr_I->strides[0] +
-                                            LeftPointy*arr_I->strides[1] + LeftPointz*arr_I->strides[2]);
-                    n_weight=lambda*exp(-(pValue-qValue)*(pValue-qValue)/(2*sigma*sigma));
+                    // float qValue=*(float *)(arr_I->data + LeftPointx*arr_I->strides[0] +
+                    //                         LeftPointy*arr_I->strides[1] + LeftPointz*arr_I->strides[2]);
+                    // n_weight=lambda*exp(-(pValue-qValue)*(pValue-qValue)/(2*sigma*sigma));
+                    std::vector<float> qValue = get_pixel_vector((float *)arr_I->data, 
+                        shape[0], shape[1], shape[2], channel, LeftPointx, LeftPointy, LeftPointz);
+                    float l2dis = get_l2_distance(pValue, qValue);
+                    n_weight=lambda*exp(-l2dis * l2dis/(2*sigma*sigma));
                     int qIndex = LeftPointx*shape[1]*shape[2] + LeftPointy*shape[2] + LeftPointz;
                     g->add_edge(qIndex,pIndex,n_weight,n_weight);
                     if(n_weight > max_weight) max_weight = n_weight;
                 }
                 if(uperPointy>=0 && uperPointy<shape[1])
                 {
-                    float qValue=*(float *)(arr_I->data + uperPointx*arr_I->strides[0] +
-                                            uperPointy*arr_I->strides[1] + uperPointz*arr_I->strides[2]);
-                    n_weight=lambda*exp(-(pValue-qValue)*(pValue-qValue)/(2*sigma*sigma));
+                    // float qValue=*(float *)(arr_I->data + uperPointx*arr_I->strides[0] +
+                    //                         uperPointy*arr_I->strides[1] + uperPointz*arr_I->strides[2]);
+                    // n_weight=lambda*exp(-(pValue-qValue)*(pValue-qValue)/(2*sigma*sigma));
+                    std::vector<float> qValue = get_pixel_vector((float *)arr_I->data, 
+                        shape[0], shape[1], shape[2], channel, uperPointx, uperPointy, uperPointz);
+                    float l2dis = get_l2_distance(pValue, qValue);
+                    n_weight=lambda*exp(-l2dis * l2dis/(2*sigma*sigma));
                     int qIndex = uperPointx*shape[1]*shape[2] + uperPointy*shape[2] + uperPointz;
                     g->add_edge(qIndex,pIndex,n_weight,n_weight);
                     if(n_weight > max_weight) max_weight = n_weight;
@@ -490,9 +543,13 @@ interactive_maxflow3d_wrapper(PyObject *self, PyObject *args)
                 }
                 if(topPointz>=0 && topPointz<shape[2])
                 {
-                    float qValue=*(float *)(arr_I->data + topPointx*arr_I->strides[0] +
-                                            topPointy*arr_I->strides[1] + topPointz*arr_I->strides[2]);
-                    n_weight=lambda*exp(-(pValue-qValue)*(pValue-qValue)/(2*sigma*sigma));
+                    // float qValue=*(float *)(arr_I->data + topPointx*arr_I->strides[0] +
+                    //                         topPointy*arr_I->strides[1] + topPointz*arr_I->strides[2]);
+                    // n_weight=lambda*exp(-(pValue-qValue)*(pValue-qValue)/(2*sigma*sigma));
+                    std::vector<float> qValue = get_pixel_vector((float *)arr_I->data, 
+                        shape[0], shape[1], shape[2], channel, topPointx, topPointy, topPointz);
+                    float l2dis = get_l2_distance(pValue, qValue);
+                    n_weight=lambda*exp(-l2dis * l2dis/(2*sigma*sigma));
                     int qIndex = topPointx*shape[1]*shape[2] + topPointy*shape[2] + topPointz;
                     g->add_edge(qIndex,pIndex,n_weight,n_weight);
                     if(n_weight > max_weight) max_weight = n_weight;

@@ -8,6 +8,7 @@ import matplotlib.pyplot as plt
 def demo_maxflow():
     I = Image.open('../data/brain.png')
     Iq = np.asarray(I.convert('L'), np.float32)
+    # Iq = np.asarray(I, np.float32)
     P = np.asarray(Image.open('../data/brain_mask.png').convert('L'), np.float32) / 255
 
     fP = 0.5 + (P - 0.5) * 0.8
@@ -24,7 +25,8 @@ def demo_maxflow():
 
 def demo_interactive_maxflow():
     I = Image.open('../data/brain.png')
-    Iq = np.asarray(I.convert('L'), np.float32)
+    # Iq = np.asarray(I.convert('L'), np.float32)
+    Iq = np.asarray(I, np.float32)
     P = np.asarray(Image.open('../data/brain_mask.png').convert('L'), np.float32) / 255
 
     fP = 0.5 + (P - 0.5) * 0.8
