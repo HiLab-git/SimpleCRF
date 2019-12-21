@@ -23,3 +23,10 @@ std::vector<T> get_pixel_vector(const T * data, int depth, int height, int width
 
 template<typename T>
 void set_pixel(T * data,  int depth, int height, int width, int d, int h, int w, T value);
+
+// for maxflow inference
+void maxflow_inference(unsigned char * label, const float* img, const float * prob, const unsigned char * seed,
+    int H, int W, int chns, int cls, float lambda, float sigma);
+
+void maxflow3d_inference(unsigned char * label, const float* img, const float * prob, const unsigned char * seed,
+    int D, int H, int W, int chns, int cls, float lambda, float sigma);

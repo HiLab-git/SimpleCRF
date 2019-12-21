@@ -12,6 +12,7 @@ maxflow_source = "maxflow_python/wrap_py{0:}.cpp".format(py_version)
 module1 = Extension(module_name1,
                     include_dirs = [numpy.get_include(),'./dependency', './maxflow_python'],
                     sources = ['maxflow_python/maxflow.cpp', 
+                               'maxflow_python/util.cpp',
                                'dependency/maxflow-v3.0/graph.cpp', 
                                'dependency/maxflow-v3.0/maxflow.cpp',
                                 maxflow_source])

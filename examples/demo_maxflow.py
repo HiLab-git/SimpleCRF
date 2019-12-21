@@ -5,6 +5,82 @@ import maxflow
 from PIL import Image
 import matplotlib.pyplot as plt
 
+def maxflow2d(I, P, param):
+    """
+    maxflow for 2D image segmentation. Only binary segmentation is supported.
+    input parameters:
+        I    : a numpy array of shape [H, W], or [H, W, C] where C should be 3.
+               type of I should be np.float32
+        P    : a probability map of shape [H, W, L], where L==2 is the number of classes
+               type of P should be np.float32
+        param: a tuple giving parameters of CRF (lambda, sigma), where
+                lambda :   weight of smooth term, e.g. 20.0
+                sigma  :   std intensity value, e.g., 10
+                
+    output parameters:
+        lab  : a numpy array of shape [H, W], where pixel values represent class indices. 
+    """
+    lab = maxflow.maxflow2d(I, P, param)
+    return lab 
+
+def interactive_maxflow2d(I, P, S, param):
+    """
+    maxflow for 2D interactive image segmentation. Only binary segmentation is supported.
+    input parameters:
+        I    : a numpy array of shape [H, W], or [H, W, C] where C should be 3.
+               type of I should be np.float32
+        P    : a probability map of shape [H, W, L], where L==2 is the number of classes
+               type of P should be np.float32
+        S    : a numpy array showing user interactions, shape should be [H, W, L], where L == 2
+               type of S should be np.uint8
+        param: a tuple giving parameters of CRF (lambda, sigma), where
+                lambda :   weight of smooth term, e.g. 20.0
+                sigma  :   std intensity value, e.g., 10
+                
+    output parameters:
+        lab  : a numpy array of shape [H, W], where pixel values represent class indices. 
+    """
+    lab = maxflow.interactive_maxflow2d(I, P, S, param)
+    return lab 
+
+def maxflow3d(I, P, param):
+    """
+    maxflow for 3D image segmentation. Only binary segmentation is supported.
+    input parameters:
+        I    : a numpy array of shape [D, H, W], or [D, H, W, C] where C should be 3.
+               type of I should be np.float32
+        P    : a probability map of shape [D, H, W, L], where L==2 is the number of classes
+               type of P should be np.float32
+        param: a tuple giving parameters of CRF (lambda, sigma), where
+                lambda :   weight of smooth term, e.g. 20.0
+                sigma  :   std intensity value, e.g., 10
+                
+    output parameters:
+        lab  : a numpy array of shape [D, H, W], where pixel values represent class indices. 
+    """
+    lab = maxflow.maxflow3d(I, P, param)
+    return lab 
+
+def interactive_maxflow3d(I, P, S, param):
+    """
+    maxflow for 3D interactive image segmentation. Only binary segmentation is supported.
+    input parameters:
+        I    : a numpy array of shape [D, H, W], or [D, H, W, C] where C should be 3.
+               type of I should be np.float32
+        P    : a probability map of shape [D, H, W, L], where L==2 is the number of classes
+               type of P should be np.float32
+        S    : a numpy array showing user interactions, shape should be [D, H, W, L], where L == 2
+               type of S should be np.uint8
+        param: a tuple giving parameters of CRF (lambda, sigma), where
+                lambda :   weight of smooth term, e.g. 20.0
+                sigma  :   std intensity value, e.g., 10
+                
+    output parameters:
+        lab  : a numpy array of shape [D, H, W], where pixel values represent class indices. 
+    """
+    lab = maxflow.interactive_maxflow3d(I, P, S, param)
+    return lab 
+
 def demo_maxflow():
     I = Image.open('../data/brain.png')
     Iq = np.asarray(I.convert('L'), np.float32)
@@ -13,10 +89,12 @@ def demo_maxflow():
 
     fP = 0.5 + (P - 0.5) * 0.8
     bP = 1.0 - fP
+    Prob = np.asarray([bP, fP])
+    Prob = np.transpose(Prob, [1, 2, 0])
     lamda = 20.0  
     sigma = 10.0
     param = (lamda, sigma)
-    lab = maxflow.maxflow2d(Iq, fP, bP, param)
+    lab = maxflow2d(Iq, Prob, param)
 
     plt.subplot(1,3,1); plt.axis('off'); plt.imshow(I);  plt.title('input image')
     plt.subplot(1,3,2); plt.axis('off'); plt.imshow(fP);   plt.title('initial \n segmentation')
@@ -31,16 +109,17 @@ def demo_interactive_maxflow():
 
     fP = 0.5 + (P - 0.5) * 0.8
     bP = 1.0 - fP
+    Prob = np.asarray([bP, fP])
+    Prob = np.transpose(Prob, [1, 2, 0])
 
-    S = np.asarray(Image.open('../data/brain_scrb.png').convert('L'))
-    scrb = np.zeros_like(S)
-    scrb[S==170] = 127
-    scrb[S==255] = 255
+    S  = np.asarray(Image.open('../data/brain_scrb.png').convert('L'))
+    Seed = np.asarray([S == 255, S == 170], np.uint8)
+    Seed = np.transpose(Seed, [1, 2, 0])
 
     lamda = 30.0  
     sigma = 8.0
     param = (lamda, sigma)
-    lab = maxflow.interactive_maxflow2d(Iq, fP, bP, scrb, param)
+    lab = interactive_maxflow2d(Iq, Prob, Seed, param)
 
     plt.subplot(1,3,1); plt.axis('off'); plt.imshow(I);  plt.title('input image')
     plt.subplot(1,3,2); plt.axis('off'); plt.imshow(fP);   plt.title('initial \n segmentation')
@@ -59,12 +138,15 @@ def demo_maxflow3d():
     prob_data = np.asarray(prob_data, np.float32)
 
     fP = 0.5 + (prob_data - 0.5) * 0.8
-    bP = 1.0-fP
+    bP = 1.0 - fP
+    Prob = np.asarray([bP, fP])
+    Prob = np.transpose(Prob, [1, 2, 3, 0])
 
     lamda = 10.0
     sigma = 15.0
     param = (lamda, sigma)
-    lab = maxflow.maxflow3d(img_data, fP, bP, param)
+    print('image data shape', img_data.shape)
+    lab = maxflow3d(img_data, Prob, param)
     lab_obj = sitk.GetImageFromArray(lab)
     lab_obj.CopyInformation(img_obj)
     sitk.WriteImage(lab_obj, save_name)
@@ -83,18 +165,19 @@ def test_interactive_max_flow3d():
     prob_data = np.asarray(prob_data, np.float32)
 
     fP = 0.5 + (prob_data - 0.5) * 0.8
-    bP = 1.0-fP
+    bP = 1.0 - fP
+    Prob = np.asarray([bP, fP])
+    Prob = np.transpose(Prob, [1, 2, 3, 0])
 
     seed_obj  = sitk.ReadImage(seed_name)
     seed_data = sitk.GetArrayFromImage(seed_obj)
-    seed_data[seed_data == 1] = 127
-    seed_data[seed_data == 2] = 255
-    seed_data = np.asarray(seed_data, np.uint8)
+    Seed = np.asarray([seed_data == 2, seed_data == 3], np.uint8)
+    Seed = np.transpose(Seed, [1, 2, 3, 0])
 
     lamda = 10.0
     sigma = 15.0
     param = (lamda, sigma)
-    lab = maxflow.interactive_maxflow3d(img_data, fP, bP, seed_data, param)
+    lab = interactive_maxflow3d(img_data, Prob, Seed, param)
     lab_obj = sitk.GetImageFromArray(lab)
     lab_obj.CopyInformation(img_obj)
     sitk.WriteImage(lab_obj, save_name)
