@@ -141,14 +141,14 @@ dense_crf_wrapper(PyObject *self, PyObject *args)
                         (unsigned char *)arr_I->data);
     MatrixXf probMapsMatrix = crf3d.inference(MaxIterations);
     VectorXs segmentationVector = crf3d.currentMap(probMapsMatrix);
-    int outshape[3];
-    outshape[0] = shape_P[0];
-    outshape[1] = shape_P[1];
-    outshape[2] = shape_P[2];
-    PyArrayObject * labels = (PyArrayObject*)  PyArray_FromDims(3, outshape, NPY_INT8);
+
+    npy_intp shape_labels[] = {shape_P[0], shape_P[1], shape_P[2]};
+    PyArrayObject * labels = (PyArrayObject*) PyArray_SimpleNew(3, shape_labels, NPY_INT8);
+    npy_int8 * c_labels = (npy_int8*) PyArray_BYTES(labels);
+
     for(int i = 0; i < num_voxel; i++)
     {
-        *(labels->data + i) = segmentationVector(i);
+        c_labels[i] = (npy_int8) segmentationVector(i);
     }
 
     Py_DECREF(arr_I);
