@@ -71,7 +71,7 @@ else:
 
 
 setup(name=package_name,
-      version = "0.0.6",
+      version = "0.1.0",
       author  ='Guotai Wang',
       author_email = 'wguotai@gmail.com',
       description  = description,

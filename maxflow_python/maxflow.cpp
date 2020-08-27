@@ -45,10 +45,10 @@ maxflow2d_wrapper(PyObject *self, PyObject *args)
 
     int chns = 1;
     if(dimI == 3) chns = shapeI[2];
-    int outshape[2];
+    npy_intp outshape[2];
     outshape[0]=shapeI[0];
     outshape[1]=shapeI[1];
-    PyArrayObject * arr_L = (PyArrayObject*)  PyArray_FromDims(2, outshape, NPY_INT8);
+    PyArrayObject * arr_L = (PyArrayObject*)  PyArray_SimpleNew(2, outshape, NPY_INT8);
     maxflow_inference((unsigned char *) arr_L->data, (const float *) arr_I->data, (const float *) arr_P->data, NULL,
         shapeI[0], shapeI[1], chns, 2, lambda, sigma);
   
@@ -100,10 +100,10 @@ interactive_maxflow2d_wrapper(PyObject *self, PyObject *args)
    
     int chns = 1;
     if(dimI == 3) chns = shapeI[2];
-    int outshape[2];
+    npy_intp outshape[2];
     outshape[0]=shapeI[0];
     outshape[1]=shapeI[1];
-    PyArrayObject * arr_L = (PyArrayObject*)  PyArray_FromDims(2, outshape, NPY_INT8);
+    PyArrayObject * arr_L = (PyArrayObject*)  PyArray_SimpleNew(2, outshape, NPY_INT8);
     maxflow_inference((unsigned char *) arr_L->data, (const float *) arr_I->data, 
         (const float *) arr_P->data, (const unsigned char *) arr_S->data,
         shapeI[0], shapeI[1], chns, 2, lambda, sigma);
@@ -153,8 +153,8 @@ maxflow3d_wrapper(PyObject *self, PyObject *args)
     
     int chns = 1;
     if(dimI == 4) chns = shapeI[3];
-    int outshape[3] = {shapeI[0], shapeI[1], shapeI[2]};
-    PyArrayObject * arr_L = (PyArrayObject*)  PyArray_FromDims(3, outshape, NPY_INT8);
+    npy_intp outshape[3] = {shapeI[0], shapeI[1], shapeI[2]};
+    PyArrayObject * arr_L = (PyArrayObject*)  PyArray_SimpleNew(3, outshape, NPY_INT8);
     maxflow3d_inference((unsigned char *) arr_L->data, (const float *) arr_I->data, 
         (const float *) arr_P->data, NULL,
         shapeI[0], shapeI[1], shapeI[2], chns, 2, lambda, sigma);
@@ -207,8 +207,8 @@ interactive_maxflow3d_wrapper(PyObject *self, PyObject *args)
     
     int chns = 1;
     if(dimI == 4) chns = shapeI[3];
-    int outshape[3] = {shapeI[0], shapeI[1], shapeI[2]};
-    PyArrayObject * arr_L = (PyArrayObject*)  PyArray_FromDims(3, outshape, NPY_INT8);
+    npy_intp outshape[3] = {shapeI[0], shapeI[1], shapeI[2]};
+    PyArrayObject * arr_L = (PyArrayObject*)  PyArray_SimpleNew(3, outshape, NPY_INT8);
     maxflow3d_inference((unsigned char *) arr_L->data, (const float *) arr_I->data, 
         (const float *) arr_P->data, (const unsigned char *) arr_S->data,
         shapeI[0], shapeI[1], shapeI[2], chns, 2, lambda, sigma);

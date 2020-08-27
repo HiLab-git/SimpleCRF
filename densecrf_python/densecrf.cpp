@@ -42,10 +42,10 @@ densecrf_wrapper(PyObject *self, PyObject *args)
     VectorXs map = dense_crf_inference((const unsigned char *)arr_I->data, (const float *)arr_fP->data, 
                     shape_fP[0], shape_fP[1], shape_fP[2], crf_param);
 
-    int outshape[2];
+    npy_intp outshape[2];
     outshape[0]=shape_fP[0];
     outshape[1]=shape_fP[1];
-    PyArrayObject * labels = (PyArrayObject*)  PyArray_FromDims(2, outshape, NPY_INT8);
+    PyArrayObject * labels = (PyArrayObject*)  PyArray_SimpleNew(2, outshape, NPY_INT8);
     for (int x=0;x<outshape[0]*outshape[1];x++)
     {
         *(labels->data + x*labels->strides[1]) = map[x];
