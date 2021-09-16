@@ -1,7 +1,18 @@
 import sys
 import setuptools
-from distutils.core import setup
-from distutils.extension import Extension
+from setuptools import setup, Extension
+from setuptools.command.build_ext import build_ext as _build_ext
+
+# get numpy as dependency when it is not pre-installed
+# from: https://stackoverflow.com/a/54128391/798093
+class build_ext(_build_ext):
+    def finalize_options(self):
+        _build_ext.finalize_options(self)
+        # Prevent numpy from thinking it is still in its setup process:
+        import builtins
+        builtins.__NUMPY_SETUP__ = False
+        import numpy
+        self.include_dirs.append(numpy.get_include())
 
 py_version   = sys.version[0]
 package_name = 'SimpleCRF'
@@ -19,7 +30,7 @@ module1 = Extension(module_name1,
 module_name2    = 'denseCRF'
 densecrf_source = "densecrf_python/wrap2D_py{0:}.cpp".format(py_version)
 module2 = Extension(module_name2,
-                    include_dirs = ['./dependency',
+                    include_dirs = [ 
                                     './dependency/densecrf/include', 
                                     './dependency/densecrf/external/liblbfgs/include'], 
                     sources=['./densecrf_python/densecrf.cpp',
@@ -39,7 +50,7 @@ module2 = Extension(module_name2,
 module_name3    = 'denseCRF3D'
 densecrf_source = "densecrf_python/wrap3D_py{0:}.cpp".format(py_version)
 module3 = Extension(module_name3,
-                    include_dirs = ['./dependency', 
+                    include_dirs = [ 
                                     './dependency/densecrf3d/include', 
                                     './dependency/densecrf/external/liblbfgs/include'], 
                     sources=['./densecrf_python/densecrf3d.cpp',
@@ -91,8 +102,10 @@ setup(name=package_name,
             'Programming Language :: Python :: 2',
             'Programming Language :: Python :: 3',
       ],
-      python_requires = '>=3.6', 
-      install_requires=get_required_packages())
+      python_requires = '>=3.6',
+            setup_requires=['numpy'],
+      install_requires=get_required_packages(),
+      cmdclass={'build_ext': build_ext},)
 
 
 # to build, run python stup.py build or python setup.py build_ext --inplace
