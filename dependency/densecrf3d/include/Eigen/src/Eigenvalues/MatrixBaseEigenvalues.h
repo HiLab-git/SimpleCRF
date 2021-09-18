@@ -66,7 +66,6 @@ template<typename Derived>
 inline typename MatrixBase<Derived>::EigenvaluesReturnType
 MatrixBase<Derived>::eigenvalues() const
 {
-  typedef typename internal::traits<Derived>::Scalar Scalar;
   return internal::eigenvalues_selector<Derived, NumTraits<Scalar>::IsComplex>::run(derived());
 }
 
@@ -85,10 +84,9 @@ MatrixBase<Derived>::eigenvalues() const
   * \sa SelfAdjointEigenSolver::eigenvalues(), MatrixBase::eigenvalues()
   */
 template<typename MatrixType, unsigned int UpLo> 
-inline typename SelfAdjointView<MatrixType, UpLo>::EigenvaluesReturnType
+EIGEN_DEVICE_FUNC inline typename SelfAdjointView<MatrixType, UpLo>::EigenvaluesReturnType
 SelfAdjointView<MatrixType, UpLo>::eigenvalues() const
 {
-  typedef typename SelfAdjointView<MatrixType, UpLo>::PlainObject PlainObject;
   PlainObject thisAsMatrix(*this);
   return SelfAdjointEigenSolver<PlainObject>(thisAsMatrix, false).eigenvalues();
 }
@@ -121,10 +119,11 @@ template<typename Derived>
 inline typename MatrixBase<Derived>::RealScalar
 MatrixBase<Derived>::operatorNorm() const
 {
+  using std::sqrt;
   typename Derived::PlainObject m_eval(derived());
   // FIXME if it is really guaranteed that the eigenvalues are already sorted,
   // then we don't need to compute a maxCoeff() here, comparing the 1st and last ones is enough.
-  return internal::sqrt((m_eval*m_eval.adjoint())
+  return sqrt((m_eval*m_eval.adjoint())
                  .eval()
 		 .template selfadjointView<Lower>()
 		 .eigenvalues()
@@ -148,7 +147,7 @@ MatrixBase<Derived>::operatorNorm() const
   * \sa eigenvalues(), MatrixBase::operatorNorm()
   */
 template<typename MatrixType, unsigned int UpLo>
-inline typename SelfAdjointView<MatrixType, UpLo>::RealScalar
+EIGEN_DEVICE_FUNC inline typename SelfAdjointView<MatrixType, UpLo>::RealScalar
 SelfAdjointView<MatrixType, UpLo>::operatorNorm() const
 {
   return eigenvalues().cwiseAbs().maxCoeff();

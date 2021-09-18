@@ -1,8 +1,18 @@
 import sys
-import numpy
 import setuptools
-from distutils.core import setup
-from distutils.extension import Extension
+from setuptools import setup, Extension
+from setuptools.command.build_ext import build_ext as _build_ext
+
+# get numpy as dependency when it is not pre-installed
+# from: https://stackoverflow.com/a/54128391/798093
+class build_ext(_build_ext):
+    def finalize_options(self):
+        _build_ext.finalize_options(self)
+        # Prevent numpy from thinking it is still in its setup process:
+        import builtins
+        builtins.__NUMPY_SETUP__ = False
+        import numpy
+        self.include_dirs.append(numpy.get_include())
 
 py_version   = sys.version[0]
 package_name = 'SimpleCRF'
@@ -10,7 +20,7 @@ package_name = 'SimpleCRF'
 module_name1   = 'maxflow'
 maxflow_source = "maxflow_python/wrap_py{0:}.cpp".format(py_version)
 module1 = Extension(module_name1,
-                    include_dirs = [numpy.get_include(),'./dependency', './maxflow_python'],
+                    include_dirs = ['./dependency', './maxflow_python'],
                     sources = ['maxflow_python/maxflow.cpp', 
                                'maxflow_python/util.cpp',
                                'dependency/maxflow-v3.0/graph.cpp', 
@@ -20,7 +30,7 @@ module1 = Extension(module_name1,
 module_name2    = 'denseCRF'
 densecrf_source = "densecrf_python/wrap2D_py{0:}.cpp".format(py_version)
 module2 = Extension(module_name2,
-                    include_dirs = [numpy.get_include(), 
+                    include_dirs = [ 
                                     './dependency/densecrf/include', 
                                     './dependency/densecrf/external/liblbfgs/include'], 
                     sources=['./densecrf_python/densecrf.cpp',
@@ -40,7 +50,7 @@ module2 = Extension(module_name2,
 module_name3    = 'denseCRF3D'
 densecrf_source = "densecrf_python/wrap3D_py{0:}.cpp".format(py_version)
 module3 = Extension(module_name3,
-                    include_dirs = [numpy.get_include(), 
+                    include_dirs = [ 
                                     './dependency/densecrf3d/include', 
                                     './dependency/densecrf/external/liblbfgs/include'], 
                     sources=['./densecrf_python/densecrf3d.cpp',
@@ -69,9 +79,14 @@ else:
     with open('README.md', encoding='utf-8') as f:
         long_description = f.read()
 
+def get_required_packages(fname="requirements.txt"):
+    with open(fname) as f:
+        requirements = f.readlines()
+    requirements = [x.strip() for x in requirements]
+    return requirements
 
 setup(name=package_name,
-      version = "0.1.0",
+      version = "0.1.1",
       author  ='Guotai Wang',
       author_email = 'wguotai@gmail.com',
       description  = description,
@@ -87,7 +102,10 @@ setup(name=package_name,
             'Programming Language :: Python :: 2',
             'Programming Language :: Python :: 3',
       ],
-      python_requires = '>=3.6')
+      python_requires = '>=3.6',
+            setup_requires=['numpy'],
+      install_requires=get_required_packages(),
+      cmdclass={'build_ext': build_ext},)
 
 
 # to build, run python stup.py build or python setup.py build_ext --inplace
