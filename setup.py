@@ -79,7 +79,7 @@ else:
     with open('README.md', encoding='utf-8') as f:
         long_description = f.read()
 
-def get_required_packages(fname="requirements.txt"):
+def get_required_packages(fname="./requirements.txt"):
     with open(fname) as f:
         requirements = f.readlines()
     requirements = [x.strip() for x in requirements]
