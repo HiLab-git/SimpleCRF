@@ -79,14 +79,8 @@ else:
     with open('README.md', encoding='utf-8') as f:
         long_description = f.read()
 
-def get_required_packages(fname="./requirements.txt"):
-    with open(fname) as f:
-        requirements = f.readlines()
-    requirements = [x.strip() for x in requirements]
-    return requirements
-
 setup(name=package_name,
-      version = "0.2",
+      version = "0.2.1.1",
       author  ='Guotai Wang',
       author_email = 'wguotai@gmail.com',
       description  = description,
@@ -103,8 +97,6 @@ setup(name=package_name,
             'Programming Language :: Python :: 3',
       ],
       python_requires = '>=3.6',
-            setup_requires=['numpy'],
-      install_requires=get_required_packages(),
       cmdclass={'build_ext': build_ext},)
 
 
