@@ -86,7 +86,7 @@ def get_required_packages(fname="requirements.txt"):
     return requirements
 
 setup(name=package_name,
-      version = "0.1.1",
+      version = "0.2",
       author  ='Guotai Wang',
       author_email = 'wguotai@gmail.com',
       description  = description,
