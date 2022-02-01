@@ -48,7 +48,8 @@ jobs:
       run: |
         ls
         ls dist/
-        pip install ${{github.workspace}}/dist/SimpleCRF-*.whl
+        pip install --find-links=${{github.workspace}}/dist/ SimpleCRF
+      #${{github.workspace}}/dist/SimpleCRF-*.whl
       #${{matrix.CMD_BUILD}}
 
     - name: Upload Python wheel
