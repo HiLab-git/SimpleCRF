@@ -192,7 +192,7 @@ if __name__ == '__main__':
 
     if len(sys.argv) == 1:
         raise ValueError("Please, provide an argument.")
-        
+
     method = sys.argv[1]
     if(method == '0'):
         demo_maxflow()
@@ -203,4 +203,4 @@ if __name__ == '__main__':
     elif(method == '3'):
         test_interactive_max_flow3d()
     else:
-        raise ValueError("Invalid number:" + method)
+        raise ValueError("Invalid number: " + method)
