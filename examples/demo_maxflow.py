@@ -1,4 +1,3 @@
-
 import numpy as np
 import SimpleITK as sitk
 import maxflow
@@ -189,10 +188,8 @@ if __name__ == '__main__':
     print(" 1 -- 2D max flow with interactions")
     print(" 2 -- 3D max flow without interactions")
     print(" 3 -- 3D max flow with interactions")
-
     if len(sys.argv) == 1:
         raise ValueError("Please, provide an argument.")
-
     method = sys.argv[1]
     if(method == '0'):
         demo_maxflow()

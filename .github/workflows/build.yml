@@ -54,12 +54,6 @@ jobs:
         cd ${{github.workspace}}/examples && python demo_maxflow.py 2
         cd ${{github.workspace}}/examples && python demo_maxflow.py 3
 
-    #- name: Run densecrf demo
-    #  run: python ${{github.workspace}}/examples/demo_densecrf.py
-
-    #- name: Run densecrf3d demo
-    #  run: ${{github.workspace}}/examples/demo_densecrf3d.py
-
     - name: Upload Python wheel
       uses: actions/upload-artifact@v2
       with:
