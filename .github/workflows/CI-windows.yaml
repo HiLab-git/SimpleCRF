@@ -28,7 +28,9 @@ jobs:
       run: python setup.py bdist_wheel --py-limited-api=cp36
 
     - name: Install software
-      run: pip install --find-links=${{github.workspace}}/dist/ SimpleCRF
+      run: |
+        pip uninstall SimpleCRF
+        pip install --find-links=${{github.workspace}}/dist/ SimpleCRF
 
     - name: Test import
       run: python -c "import denseCRF, maxflow"
