@@ -45,7 +45,11 @@ jobs:
       run: python setup.py bdist_wheel --universal
 
     - name: Install program for ${{matrix.TARGET}}
-      run: ${{matrix.CMD_BUILD}}
+      run: |
+        ls
+        ls dist/
+        pip install ${{github.workspace}}/dist/SimpleCRF-*.whl
+      #${{matrix.CMD_BUILD}}
 
     - name: Upload Python wheel
       uses: actions/upload-artifact@v2
