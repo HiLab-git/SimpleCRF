@@ -96,10 +96,11 @@ def demo_maxflow():
     param = (lamda, sigma)
     lab = maxflow2d(Iq, Prob, param)
 
+    fig = plt.figure()
     plt.subplot(1,3,1); plt.axis('off'); plt.imshow(I);  plt.title('input image')
     plt.subplot(1,3,2); plt.axis('off'); plt.imshow(fP);   plt.title('initial \n segmentation')
     plt.subplot(1,3,3); plt.axis('off'); plt.imshow(lab); plt.title('CRF result')
-    plt.show()
+    fig.savefig('./demo_result.png')
 
 def demo_interactive_maxflow():
     I = Image.open('../data/brain.png')
@@ -121,10 +122,11 @@ def demo_interactive_maxflow():
     param = (lamda, sigma)
     lab = interactive_maxflow2d(Iq, Prob, Seed, param)
 
+    fig = plt.figure()
     plt.subplot(1,3,1); plt.axis('off'); plt.imshow(I);  plt.title('input image')
     plt.subplot(1,3,2); plt.axis('off'); plt.imshow(fP);   plt.title('initial \n segmentation')
     plt.subplot(1,3,3); plt.axis('off'); plt.imshow(lab); plt.title('CRF result')
-    plt.show()
+    fig.savefig('./demo_result.png')
 
 def demo_maxflow3d():
     img_name   = "../data/2013_12_1_img.nii.gz"
