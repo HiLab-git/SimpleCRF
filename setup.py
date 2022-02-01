@@ -25,7 +25,8 @@ module1 = Extension(module_name1,
                                'maxflow_python/util.cpp',
                                'dependency/maxflow-v3.0/graph.cpp', 
                                'dependency/maxflow-v3.0/maxflow.cpp',
-                                maxflow_source])
+                                maxflow_source],
+                    py_limited_api=True)
 
 module_name2    = 'denseCRF'
 densecrf_source = "densecrf_python/wrap2D_py{0:}.cpp".format(py_version)
@@ -45,7 +46,8 @@ module2 = Extension(module_name2,
                             './dependency/densecrf/src/util.cpp',
                             './dependency/densecrf/external/liblbfgs/lib/lbfgs.c', 
                             densecrf_source,
-                            ])
+                            ],
+                    py_limited_api=True)
 
 module_name3    = 'denseCRF3D'
 densecrf_source = "densecrf_python/wrap3D_py{0:}.cpp".format(py_version)
@@ -65,13 +67,14 @@ module3 = Extension(module_name3,
                             './dependency/densecrf3d/src/util.cpp',
                             './dependency/densecrf/external/liblbfgs/lib/lbfgs.c', 
                             densecrf_source,
-                            ])
+                            ],
+                    py_limited_api=True)
 
 # Get the summary
 description = 'An open-source toolkit for conditional random field (CRF) and dense CRF'
 
 # Get the long description
-if(sys.version[0] == '2'):
+if (sys.version[0] == '2'):
     import io
     with io.open('README.md', 'r', encoding='utf-8') as f:
         long_description = f.read()
@@ -100,5 +103,5 @@ setup(name=package_name,
       cmdclass={'build_ext': build_ext},)
 
 
-# to build, run python stup.py build or python setup.py build_ext --inplace
+# to build, run python setup.py build or python setup.py build_ext --inplace
 # to install, run python setup.py install
