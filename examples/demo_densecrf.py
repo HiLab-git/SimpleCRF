@@ -73,10 +73,11 @@ def demo_densecrf1():
     param = (w1, alpha, beta, w2, gamma, it)
     lab = densecrf(Iq, prob, param)
     lab = Image.fromarray(lab*255)
+    fig = plt.figure()
     plt.subplot(1,3,1); plt.axis('off'); plt.imshow(I); plt.title('input image')
     plt.subplot(1,3,2); plt.axis('off'); plt.imshow(L); plt.title('initial label')
     plt.subplot(1,3,3); plt.axis('off'); plt.imshow(lab); plt.title('after dense CRF')
-    plt.show()
+    fig.savefig('./demo_result.png')
 
 def demo_densecrf2():
     I  = Image.open('../dependency/densecrf/examples/im3.ppm')
@@ -100,10 +101,11 @@ def demo_densecrf2():
     lab = densecrf(Iq, prob, param)
     lab = colorize_label_map(lab, color_list)
     lab = Image.fromarray(lab)
+    fig = plt.figure()
     plt.subplot(1,3,1); plt.axis('off'); plt.imshow(I); plt.title('input image')
     plt.subplot(1,3,2); plt.axis('off'); plt.imshow(L); plt.title('initial label')
     plt.subplot(1,3,3); plt.axis('off'); plt.imshow(lab); plt.title('after dense CRF')
-    plt.show()
+    fig.savefig('./demo_result.png')
 
 if __name__ == "__main__":
     print("example list")
