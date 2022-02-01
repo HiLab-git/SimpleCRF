@@ -41,6 +41,7 @@ jobs:
       run: |
         pip install SimpleITK pillow matplotlib
         cd ${{github.workspace}}/examples && python demo_maxflow.py 0
+        if: python-version != 3
 
     - name: Upload Python wheel
       uses: actions/upload-artifact@v2
