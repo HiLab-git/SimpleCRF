@@ -40,17 +40,20 @@ jobs:
         pip install wheel setuptools
         pip install -r requirements.txt
 
-
     - name: Build wheel
       run: python setup.py bdist_wheel --universal
 
     - name: Install program for ${{matrix.TARGET}}
-      run: |
-        ls
-        ls dist/
-        pip install --find-links=${{github.workspace}}/dist/ SimpleCRF
-      #${{github.workspace}}/dist/SimpleCRF-*.whl
-      #${{matrix.CMD_BUILD}}
+      run: pip install --find-links=${{github.workspace}}/dist/ SimpleCRF
+
+    - name: Run maxflow demo
+      run: python ${{github.workspace}}/examples/demo_maxflow.py
+
+    - name: Run densecrf demo
+      run: python ${{github.workspace}}/examples/demo_densecrf.py
+
+    - name: Run densecrf3d demo
+      run: ${{github.workspace}}/examples/demo_densecrf3d.py
 
     - name: Upload Python wheel
       uses: actions/upload-artifact@v2
