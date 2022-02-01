@@ -37,7 +37,7 @@ jobs:
     - name: Test import
       run: python -c "import denseCRF, maxflow"
 
-      name: Test maxflow demo
+    - name: Test maxflow demo
       run: |
         pip install SimpleITK pillow matplotlib
         cd ${{github.workspace}}/examples && python demo_maxflow.py 0
