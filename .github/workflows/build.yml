@@ -41,6 +41,9 @@ jobs:
     - name: Install program for ${{matrix.TARGET}}
       run: pip install --find-links=${{github.workspace}}/dist/ SimpleCRF
 
+    - name: Test import
+      run: python -c "import denseCRF, maxflow"
+
     #- name: Run maxflow demo (and install deps)
     #  run: |
     #    pip install SimpleITK pillow matplotlib
