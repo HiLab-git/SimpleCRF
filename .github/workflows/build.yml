@@ -36,7 +36,11 @@ jobs:
         python-version: 3.7
 
     - name: Install dependencies
-      run: pip install wheel setuptools
+      run: |
+        pip install wheel setuptools
+        ls -la
+        pip install requirements.txt
+
 
     - name: Build wheel
       run: python setup.py bdist_wheel --universal
