@@ -50,6 +50,9 @@ jobs:
       run: |
         pip install SimpleITK pillow matplotlib
         cd ${{github.workspace}}/examples && python demo_maxflow.py 1
+        cd ${{github.workspace}}/examples && python demo_maxflow.py 2
+        cd ${{github.workspace}}/examples && python demo_maxflow.py 3
+        cd ${{github.workspace}}/examples && python demo_maxflow.py 4
 
     #- name: Run densecrf demo
     #  run: python ${{github.workspace}}/examples/demo_densecrf.py

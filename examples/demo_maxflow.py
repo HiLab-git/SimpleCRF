@@ -189,9 +189,10 @@ if __name__ == '__main__':
     print(" 1 -- 2D max flow with interactions")
     print(" 2 -- 3D max flow without interactions")
     print(" 3 -- 3D max flow with interactions")
-    print("please enter the index of an example:")
-    #method = input()
-    #method = "{0:}".format(method)
+
+    if len(sys.argv) == 1:
+        raise ValueError("Please, provide an argument.")
+        
     method = sys.argv[1]
     if(method == '0'):
         demo_maxflow()
@@ -202,4 +203,4 @@ if __name__ == '__main__':
     elif(method == '3'):
         test_interactive_max_flow3d()
     else:
-        print("invalid number : method")
+        raise ValueError("Invalid number:" + method)
