@@ -37,7 +37,7 @@ jobs:
     - name: Test import
       run: python -c "import denseCRF, maxflow"
 
-    - if: python-version != 3
+    - if: ${{ matrix.python-version }} != 3
       name: Test maxflow demo
       run: |
         pip install SimpleITK pillow matplotlib
