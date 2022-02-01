@@ -28,8 +28,7 @@ jobs:
         pip install -r requirements.txt
 
     - name: Build wheel
-      run: python setup.py bdist_wheel 
-      #--py-limited-api=cp36
+      run: python setup.py bdist_wheel
 
     - name: Install software
       run: pip install --find-links=${{github.workspace}}/dist/ SimpleCRF
@@ -48,8 +47,6 @@ jobs:
 
     - name: Test denseCRF 3D demo
       run: cd ${{github.workspace}}/examples && python demo_densecrf.py 2
-
-    - name: Test dense_crf demo
 
     - name: Upload Python wheel
       uses: actions/upload-artifact@v2

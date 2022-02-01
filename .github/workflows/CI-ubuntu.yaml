@@ -28,8 +28,7 @@ jobs:
         pip install -r requirements.txt
 
     - name: Build wheel
-      run: python setup.py bdist_wheel 
-      #--py-limited-api=cp36
+      run: python setup.py bdist_wheel
 
     - name: Install software
       run: pip install --find-links=${{github.workspace}}/dist/ SimpleCRF
