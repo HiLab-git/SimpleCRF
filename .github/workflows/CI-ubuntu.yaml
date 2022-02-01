@@ -25,9 +25,9 @@ jobs:
         pip install -r requirements.txt
 
     - name: Build wheel
-      run: python setup.py bdist_wheel
+      run: python setup.py bdist_wheel --py-limited-api=cp36
 
-    - name: Install program for ${{matrix.TARGET}}
+    - name: Install software
       run: pip install --find-links=${{github.workspace}}/dist/ SimpleCRF
 
     - name: Test import

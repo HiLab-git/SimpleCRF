@@ -95,9 +95,7 @@ setup(name=package_name,
       ext_modules = [module1, module2, module3],
       classifiers=[
             'License :: OSI Approved :: BSD License',
-            'Programming Language :: Python',
-            'Programming Language :: Python :: 2',
-            'Programming Language :: Python :: 3',
+            'Programming Language :: Python :: 3 :: Only',
       ],
       python_requires = '>=3.6',
       cmdclass={'build_ext': build_ext},)
