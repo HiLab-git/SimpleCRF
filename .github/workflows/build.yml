@@ -1,0 +1,48 @@
+name: Build
+
+on:
+  push:
+    branches: [ master workflow ]
+  pull_request:
+    branches: [ master workflow ]
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        include:
+          - os: ubuntu-18.04
+            TARGET: ubuntu
+            CMD_BUILD: pip install git+https://github.com/andreped/SimpleCRF.git
+
+          - os: macos-10.15
+            TARGET: macos
+            CMD_BUILD: pip install git+https://github.com/andreped/SimpleCRF.git
+
+          - os: windows-2019
+            TARGET: windows
+            CMD_BUILD: pip install git+https://github.com/andreped/SimpleCRF.git
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Set up Python 3.7
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.7
+
+    - name: Install dependencies
+      run: pip install wheel setuptools
+
+    - name: Build wheel
+      run: python setup.py bdist_wheel --universal
+
+    - name: Install program for ${{matrix.TARGET}}
+      run: ${{matrix.CMD_BUILD}}
+
+    - name: Upload Python wheel
+      uses: actions/upload-artifact@v2
+      with:
+        name: Python wheel
+        path: ${{github.workspace}}/dist/SimpleCRF-*.whl
+        if-no-files-found: error
