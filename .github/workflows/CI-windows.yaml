@@ -37,11 +37,10 @@ jobs:
     - name: Test import
       run: python -c "import denseCRF, maxflow"
 
-    #- name: Run maxflow demo (and install deps)
-    #  run: |
-    #    pip install SimpleITK pillow matplotlib
-    #    cd ${{github.workspace}}/examples && python demo_maxflow.py 0
-    #  if: matrix.os == windows-2019
+    - name: Test maxflow demo
+      run: |
+        pip install SimpleITK pillow matplotlib
+        cd ${{github.workspace}}/examples && python demo_maxflow.py 0
 
     - name: Upload Python wheel
       uses: actions/upload-artifact@v2
