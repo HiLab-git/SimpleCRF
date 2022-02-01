@@ -46,7 +46,7 @@ jobs:
       run: cd ${{github.workspace}}/examples && python demo_densecrf.py 1
 
     - name: Test denseCRF 3D demo
-      run: cd ${{github.workspace}}/examples && python demo_densecrf.py 2
+      run: cd ${{github.workspace}}/examples && python demo_densecrf.py 1
 
     - name: Upload Python wheel
       uses: actions/upload-artifact@v2
