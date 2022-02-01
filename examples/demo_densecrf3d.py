@@ -101,5 +101,3 @@ if __name__ == "__main__":
         demo_densecrf3d_2()
     else:
         raise ValueError("Invalid number: " + method)
-
-
