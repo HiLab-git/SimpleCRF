@@ -13,7 +13,7 @@ jobs:
     runs-on: windows-2019
     strategy:
       matrix:
-        python-version: [3.6, 3.7, 3.8, 3.9, 3]
+        python-version: [3.6, 3.7, 3.8, 3.9]
 
     steps:
     - uses: actions/checkout@v1
@@ -37,7 +37,6 @@ jobs:
     - name: Test import
       run: python -c "import denseCRF, maxflow"
 
-    - if: ${{ matrix.python-version }} != 3
       name: Test maxflow demo
       run: |
         pip install SimpleITK pillow matplotlib
