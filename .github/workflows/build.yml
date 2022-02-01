@@ -41,10 +41,11 @@ jobs:
     - name: Install program for ${{matrix.TARGET}}
       run: pip install --find-links=${{github.workspace}}/dist/ SimpleCRF
 
-    - name: Run maxflow demo (and install deps)
-      run: |
-        pip install SimpleITK pillow matplotlib
-        cd ${{github.workspace}}/examples && python demo_maxflow.py 0
+    #- name: Run maxflow demo (and install deps)
+    #  run: |
+    #    pip install SimpleITK pillow matplotlib
+    #    cd ${{github.workspace}}/examples && python demo_maxflow.py 0
+    #  if: matrix.os == windows-2019
 
     - name: Upload Python wheel
       uses: actions/upload-artifact@v2
