@@ -10,18 +10,7 @@ on:
 
 jobs:
   build:
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        include:
-          - os: ubuntu-18.04
-            TARGET: ubuntu
-
-          - os: macos-10.15
-            TARGET: macos
-
-          - os: windows-2019
-            TARGET: windows
+    runs-on: windows-2019
 
     steps:
     - uses: actions/checkout@v1

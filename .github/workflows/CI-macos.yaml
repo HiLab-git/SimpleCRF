@@ -1,0 +1,47 @@
+name: Build
+
+on:
+  push:
+    branches: 
+      - '*'
+  pull_request:
+    branches: 
+      - '*'
+
+jobs:
+  build:
+    runs-on: macos-10.15
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Set up Python 3.6
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.6
+
+    - name: Install dependencies
+      run: |
+        pip install wheel setuptools
+        pip install -r requirements.txt
+
+    - name: Build wheel
+      run: python setup.py bdist_wheel
+
+    - name: Install program for ${{matrix.TARGET}}
+      run: pip install --find-links=${{github.workspace}}/dist/ SimpleCRF
+
+    - name: Test import
+      run: python -c "import denseCRF, maxflow"
+
+    #- name: Run maxflow demo (and install deps)
+    #  run: |
+    #    pip install SimpleITK pillow matplotlib
+    #    cd ${{github.workspace}}/examples && python demo_maxflow.py 0
+    #  if: matrix.os == windows-2019
+
+    - name: Upload Python wheel
+      uses: actions/upload-artifact@v2
+      with:
+        name: Python wheel
+        path: ${{github.workspace}}/dist/SimpleCRF-*.whl
+        if-no-files-found: error
