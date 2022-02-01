@@ -46,14 +46,16 @@ jobs:
     - name: Install program for ${{matrix.TARGET}}
       run: pip install --find-links=${{github.workspace}}/dist/ SimpleCRF
 
-    - name: Run maxflow demo
-      run: python ${{github.workspace}}/examples/demo_maxflow.py
+    - name: Run maxflow demo (and install deps)
+      run: |
+        pip install SimpleITK pillow matplotlib
+        python ${{github.workspace}}/examples/demo_maxflow.py
 
-    - name: Run densecrf demo
-      run: python ${{github.workspace}}/examples/demo_densecrf.py
+    #- name: Run densecrf demo
+    #  run: python ${{github.workspace}}/examples/demo_densecrf.py
 
-    - name: Run densecrf3d demo
-      run: ${{github.workspace}}/examples/demo_densecrf3d.py
+    #- name: Run densecrf3d demo
+    #  run: ${{github.workspace}}/examples/demo_densecrf3d.py
 
     - name: Upload Python wheel
       uses: actions/upload-artifact@v2
