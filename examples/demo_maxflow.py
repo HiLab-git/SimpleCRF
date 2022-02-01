@@ -4,6 +4,7 @@ import SimpleITK as sitk
 import maxflow
 from PIL import Image
 import matplotlib.pyplot as plt
+import sys
 
 def maxflow2d(I, P, param):
     """
@@ -189,8 +190,9 @@ if __name__ == '__main__':
     print(" 2 -- 3D max flow without interactions")
     print(" 3 -- 3D max flow with interactions")
     print("please enter the index of an example:")
-    method = input()
-    method = "{0:}".format(method)
+    #method = input()
+    #method = "{0:}".format(method)
+    method = sys.argv[1]
     if(method == '0'):
         demo_maxflow()
     elif(method == '1'):
@@ -200,4 +202,4 @@ if __name__ == '__main__':
     elif(method == '3'):
         test_interactive_max_flow3d()
     else:
-        print("invalid number : {0:}".format(method))
+        print("invalid number : method")
