@@ -4,30 +4,15 @@ on:
   push:
     branches: 
       - '*'
-      #[ master workflow ]
   pull_request:
     branches: 
       - '*'
-    #[ master workflow ]
 
 jobs:
   build:
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        include:
-          - os: ubuntu-18.04
-            TARGET: ubuntu
-            CMD_BUILD: pip install git+https://github.com/andreped/SimpleCRF.git
-
-          - os: macos-10.15
-            TARGET: macos
-            CMD_BUILD: pip install git+https://github.com/andreped/SimpleCRF.git
-
-          - os: windows-2019
-            TARGET: windows
-            CMD_BUILD: pip install git+https://github.com/andreped/SimpleCRF.git
-
+    runs-on: 
+      ${{ matrix.os }}
+      
     steps:
     - uses: actions/checkout@v1
     - name: Set up Python 3.7
