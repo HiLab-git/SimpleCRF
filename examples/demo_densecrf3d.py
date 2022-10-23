@@ -3,6 +3,7 @@ import denseCRF3D
 import numpy as np
 from PIL import Image
 import matplotlib.pyplot as plt
+import sys
 
 def densecrf3d(I, P, param):
     """
@@ -91,14 +92,12 @@ if __name__ == "__main__":
     print("example list")
     print(" 0 -- 3D Dense CRF example for single-modal segmentation")
     print(" 1 -- 3D Dense CRF example for multi-modal segmentation")
-    print("please enter the index of an example:")
-    method = input()
-    method = "{0:}".format(method)
+    if len(sys.argv) == 1:
+        raise ValueError("Please, provide an argument.")
+    method = sys.argv[1]
     if(method == '0'):
         demo_densecrf3d_1()
     elif(method == '1'):
         demo_densecrf3d_2()
     else:
-        print("invalid number : {0:}".format(method))
-
-
+        raise ValueError("Invalid number: " + method)

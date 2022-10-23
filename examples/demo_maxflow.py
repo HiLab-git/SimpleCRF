@@ -1,9 +1,9 @@
-
 import numpy as np
 import SimpleITK as sitk
 import maxflow
 from PIL import Image
 import matplotlib.pyplot as plt
+import sys
 
 def maxflow2d(I, P, param):
     """
@@ -96,10 +96,11 @@ def demo_maxflow():
     param = (lamda, sigma)
     lab = maxflow2d(Iq, Prob, param)
 
+    fig = plt.figure()
     plt.subplot(1,3,1); plt.axis('off'); plt.imshow(I);  plt.title('input image')
     plt.subplot(1,3,2); plt.axis('off'); plt.imshow(fP);   plt.title('initial \n segmentation')
     plt.subplot(1,3,3); plt.axis('off'); plt.imshow(lab); plt.title('CRF result')
-    plt.show()
+    fig.savefig('./demo_result.png')
 
 def demo_interactive_maxflow():
     I = Image.open('../data/brain.png')
@@ -121,10 +122,11 @@ def demo_interactive_maxflow():
     param = (lamda, sigma)
     lab = interactive_maxflow2d(Iq, Prob, Seed, param)
 
+    fig = plt.figure()
     plt.subplot(1,3,1); plt.axis('off'); plt.imshow(I);  plt.title('input image')
     plt.subplot(1,3,2); plt.axis('off'); plt.imshow(fP);   plt.title('initial \n segmentation')
     plt.subplot(1,3,3); plt.axis('off'); plt.imshow(lab); plt.title('CRF result')
-    plt.show()
+    fig.savefig('./demo_result.png')
 
 def demo_maxflow3d():
     img_name   = "../data/2013_12_1_img.nii.gz"
@@ -188,9 +190,9 @@ if __name__ == '__main__':
     print(" 1 -- 2D max flow with interactions")
     print(" 2 -- 3D max flow without interactions")
     print(" 3 -- 3D max flow with interactions")
-    print("please enter the index of an example:")
-    method = input()
-    method = "{0:}".format(method)
+    if len(sys.argv) == 1:
+        raise ValueError("Please, provide an argument.")
+    method = sys.argv[1]
     if(method == '0'):
         demo_maxflow()
     elif(method == '1'):
@@ -200,4 +202,4 @@ if __name__ == '__main__':
     elif(method == '3'):
         test_interactive_max_flow3d()
     else:
-        print("invalid number : {0:}".format(method))
+        raise ValueError("Invalid number: " + method)

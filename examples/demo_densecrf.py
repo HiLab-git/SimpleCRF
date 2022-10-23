@@ -2,6 +2,7 @@ import denseCRF
 import numpy as np
 from PIL import Image
 import matplotlib.pyplot as plt
+import sys
 
 def densecrf(I, P, param):
     """
@@ -72,10 +73,11 @@ def demo_densecrf1():
     param = (w1, alpha, beta, w2, gamma, it)
     lab = densecrf(Iq, prob, param)
     lab = Image.fromarray(lab*255)
+    fig = plt.figure()
     plt.subplot(1,3,1); plt.axis('off'); plt.imshow(I); plt.title('input image')
     plt.subplot(1,3,2); plt.axis('off'); plt.imshow(L); plt.title('initial label')
     plt.subplot(1,3,3); plt.axis('off'); plt.imshow(lab); plt.title('after dense CRF')
-    plt.show()
+    fig.savefig('./demo_result.png')
 
 def demo_densecrf2():
     I  = Image.open('../dependency/densecrf/examples/im3.ppm')
@@ -99,21 +101,22 @@ def demo_densecrf2():
     lab = densecrf(Iq, prob, param)
     lab = colorize_label_map(lab, color_list)
     lab = Image.fromarray(lab)
+    fig = plt.figure()
     plt.subplot(1,3,1); plt.axis('off'); plt.imshow(I); plt.title('input image')
     plt.subplot(1,3,2); plt.axis('off'); plt.imshow(L); plt.title('initial label')
     plt.subplot(1,3,3); plt.axis('off'); plt.imshow(lab); plt.title('after dense CRF')
-    plt.show()
+    fig.savefig('./demo_result.png')
 
 if __name__ == "__main__":
     print("example list")
     print(" 0 -- Dense CRF example for a binary segmentation")
     print(" 1 -- Dense CRF example for a multi-class segmentation")
-    print("please enter the index of an example:")
-    method = input()
-    method = "{0:}".format(method)
+    if len(sys.argv) == 1:
+        raise ValueError("Please, provide an argument.")
+    method = sys.argv[1]
     if(method == '0'):
         demo_densecrf1()
     elif(method == '1'):
         demo_densecrf2()
     else:
-        print("invalid number : {0:}".format(method))
+        raise ValueError("Invalid number: " + method)
