@@ -14,8 +14,8 @@ maxflow2d_wrapper(PyObject *self, PyObject *args)
     PyArrayObject *arr_I=NULL, *arr_P=NULL;
     if (!PyArg_ParseTuple(args, "OOO", &I, &P, &param)) return NULL;
     
-    arr_I = (PyArrayObject*)PyArray_FROM_OTF(I, NPY_FLOAT32, NPY_IN_ARRAY);
-    arr_P = (PyArrayObject*)PyArray_FROM_OTF(P, NPY_FLOAT32, NPY_IN_ARRAY);
+    arr_I = (PyArrayObject*)PyArray_FROM_OTF(I, NPY_FLOAT32, NPY_ARRAY_IN_ARRAY);
+    arr_P = (PyArrayObject*)PyArray_FROM_OTF(P, NPY_FLOAT32, NPY_ARRAY_IN_ARRAY);
     if (arr_I == NULL || arr_P == NULL) return NULL;
     float lambda = PyFloat_AsDouble(PyTuple_GET_ITEM(param, 0));
     float sigma  = PyFloat_AsDouble(PyTuple_GET_ITEM(param, 1));
@@ -65,9 +65,9 @@ interactive_maxflow2d_wrapper(PyObject *self, PyObject *args)
     PyArrayObject *arr_I=NULL, *arr_P=NULL, *arr_S=NULL;
     if (!PyArg_ParseTuple(args, "OOOO", &I, &P, &S, &param)) return NULL;
     
-    arr_I = (PyArrayObject*)PyArray_FROM_OTF(I, NPY_FLOAT32, NPY_IN_ARRAY);
-    arr_P = (PyArrayObject*)PyArray_FROM_OTF(P, NPY_FLOAT32, NPY_IN_ARRAY);
-    arr_S = (PyArrayObject*)PyArray_FROM_OTF(S, NPY_UINT8,   NPY_IN_ARRAY);
+    arr_I = (PyArrayObject*)PyArray_FROM_OTF(I, NPY_FLOAT32, NPY_ARRAY_IN_ARRAY);
+    arr_P = (PyArrayObject*)PyArray_FROM_OTF(P, NPY_FLOAT32, NPY_ARRAY_IN_ARRAY);
+    arr_S = (PyArrayObject*)PyArray_FROM_OTF(S, NPY_UINT8,   NPY_ARRAY_IN_ARRAY);
     if (arr_I == NULL || arr_P == NULL || arr_S == NULL) return NULL;
     float lambda = PyFloat_AsDouble(PyTuple_GET_ITEM(param, 0));
     float sigma  = PyFloat_AsDouble(PyTuple_GET_ITEM(param, 1));
@@ -122,8 +122,8 @@ maxflow3d_wrapper(PyObject *self, PyObject *args)
     PyArrayObject *arr_I=NULL, *arr_P=NULL;
     if (!PyArg_ParseTuple(args, "OOO", &I, &P, &param)) return NULL;
     
-    arr_I = (PyArrayObject*)PyArray_FROM_OTF(I, NPY_FLOAT32, NPY_IN_ARRAY);
-    arr_P = (PyArrayObject*)PyArray_FROM_OTF(P, NPY_FLOAT32, NPY_IN_ARRAY);
+    arr_I = (PyArrayObject*)PyArray_FROM_OTF(I, NPY_FLOAT32, NPY_ARRAY_IN_ARRAY);
+    arr_P = (PyArrayObject*)PyArray_FROM_OTF(P, NPY_FLOAT32, NPY_ARRAY_IN_ARRAY);
     if (arr_I == NULL || arr_P == NULL) return NULL;
     float lambda = PyFloat_AsDouble(PyTuple_GET_ITEM(param, 0));
     float sigma  = PyFloat_AsDouble(PyTuple_GET_ITEM(param, 1));
@@ -172,9 +172,9 @@ interactive_maxflow3d_wrapper(PyObject *self, PyObject *args)
     PyArrayObject *arr_I=NULL, *arr_P=NULL, *arr_S=NULL;
     if (!PyArg_ParseTuple(args, "OOOO", &I, &P, &S, &param)) return NULL;
     
-    arr_I = (PyArrayObject*)PyArray_FROM_OTF(I, NPY_FLOAT32, NPY_IN_ARRAY);
-    arr_P = (PyArrayObject*)PyArray_FROM_OTF(P, NPY_FLOAT32, NPY_IN_ARRAY);
-    arr_S = (PyArrayObject*)PyArray_FROM_OTF(S, NPY_UINT8,   NPY_IN_ARRAY);
+    arr_I = (PyArrayObject*)PyArray_FROM_OTF(I, NPY_FLOAT32, NPY_ARRAY_IN_ARRAY);
+    arr_P = (PyArrayObject*)PyArray_FROM_OTF(P, NPY_FLOAT32, NPY_ARRAY_IN_ARRAY);
+    arr_S = (PyArrayObject*)PyArray_FROM_OTF(S, NPY_UINT8,   NPY_ARRAY_IN_ARRAY);
     if (arr_I == NULL || arr_P == NULL || arr_S == NULL) return NULL;
     float lambda = PyFloat_AsDouble(PyTuple_GET_ITEM(param, 0));
     float sigma  = PyFloat_AsDouble(PyTuple_GET_ITEM(param, 1));

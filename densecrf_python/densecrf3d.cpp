@@ -18,10 +18,10 @@ dense_crf_wrapper(PyObject *self, PyObject *args)
     
     if (!PyArg_ParseTuple(args, "OOO", &I, &P, &param)) return NULL;
     
-    arr_I = (PyArrayObject*)PyArray_FROM_OTF(I, NPY_UINT8, NPY_IN_ARRAY);
+    arr_I = (PyArrayObject*)PyArray_FROM_OTF(I, NPY_UINT8, NPY_ARRAY_IN_ARRAY);
     if (arr_I == NULL) return NULL;
     
-    arr_P = (PyArrayObject*)PyArray_FROM_OTF(P, NPY_FLOAT32, NPY_IN_ARRAY);
+    arr_P = (PyArrayObject*)PyArray_FROM_OTF(P, NPY_FLOAT32, NPY_ARRAY_IN_ARRAY);
     if (arr_P == NULL) return NULL;
 
     
