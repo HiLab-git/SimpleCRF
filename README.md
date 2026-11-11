@@ -2,7 +2,7 @@
 Matlab and Python wrap of Conditional Random Field (CRF) and fully connected (dense) CRF for 2D and 3D image segmentation. This repository was part of the work in Slic-Seg for interactive image segmentation. If you use this code, please cite the following paper:
 
 * G. Wang, M. A. Zuluaga, R. Pratt, M. Aertsen, T. Doel, M. Klusmann, A. L. David, J. Deprest, T. Vercauteren, and S. Ourselin. 
-[Slic-Seg: A Minimally Interactive Segmentation of the Placenta from Sparse and Motion-Corrupted Fetal MRI in Multiple Views][Media2016] Medical Image Analysis. 34, 2016, pp. 137-147.
+[Slic-Seg: A Minimally Interactive Segmentation of the Placenta from Sparse and Motion-Corrupted Fetal MRI in Multiple Views.][Media2016] Medical Image Analysis. 34, 2016, pp. 137-147.
 
 [Media2016]:https://www.sciencedirect.com/science/article/pii/S1361841516300287
 
@@ -38,7 +38,9 @@ This repository depends on the following packages:
 [`3D Dense CRF`](https://github.com/deepmedic/dense3dCrf)
 
 ### Installation
-1. Install by: [`pip install SimpleCRF`](https://github.com/taigw/SimpleCRF)
+Numpy>=2.0.0 is required for the latest version. 
+
+1. Install by pip: [`pip install SimpleCRF`](https://github.com/taigw/SimpleCRF)
 
 2. Alternatively, you can compile the source files by the following two steps:
 ```bash
