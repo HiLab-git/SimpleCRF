@@ -1,5 +1,25 @@
 # SimpleCRF
-Matlab and Python wrap of Conditional Random Field (CRF) and fully connected (dense) CRF for 2D and 3D image segmentation, according to the following papers:
+Matlab and Python wrap of Conditional Random Field (CRF) and fully connected (dense) CRF for 2D and 3D image segmentation. This repository was part of the work in Slic-Seg for interactive image segmentation. If you use this code, please cite the following paper:
+
+* G. Wang, M. A. Zuluaga, R. Pratt, M. Aertsen, T. Doel, M. Klusmann, A. L. David, J. Deprest, T. Vercauteren, and S. Ourselin. 
+[Slic-Seg: A Minimally Interactive Segmentation of the Placenta from Sparse and Motion-Corrupted Fetal MRI in Multiple Views][Media2016] Medical Image Analysis. 34, 2016, pp. 137-147.
+
+[Media2016]:https://www.sciencedirect.com/science/article/pii/S1361841516300287
+
+BibTeX entry:
+
+    @article{WANG2016137,
+    title = {Slic-Seg: A minimally interactive segmentation of the placenta from sparse and motion-corrupted fetal MRI in multiple views},
+    journal = {Medical Image Analysis},
+    volume = {34},
+    pages = {137-147},
+    year = {2016},
+    issn = {1361-8415},
+    doi = {https://doi.org/10.1016/j.media.2016.04.009},
+    author = {Guotai Wang and Maria A. Zuluaga and Rosalind Pratt and Michael Aertsen and Tom Doel and Maria Klusmann and Anna L. David and Jan Deprest and Tom Vercauteren and Sébastien Ourselin}
+    }
+
+The CRF and DenseCRF algorithms are from the following papers:
 
 [1] Yuri Boykov and Vladimir Kolmogorov, "An experimental comparison of min-cut/max-flow algorithms for energy minimization in vision", IEEE TPAMI, 2004.
 
