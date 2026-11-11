@@ -38,9 +38,12 @@ This repository depends on the following packages:
 [`3D Dense CRF`](https://github.com/deepmedic/dense3dCrf)
 
 ### Installation
-Numpy>=2.0.0 is required for the latest version. 
+Numpy>=2.0.0 is required for the latest version (0.2.2). 
 
-1. Install by pip: [`pip install SimpleCRF`](https://github.com/taigw/SimpleCRF)
+1. Install by pip:
+```bash
+pip install SimpleCRF
+```
 
 2. Alternatively, you can compile the source files by the following two steps:
 ```bash
